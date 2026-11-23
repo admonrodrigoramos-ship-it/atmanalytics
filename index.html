@@ -1,0 +1,849 @@
+<!doctype html>
+<html lang="es" data-brand="rm">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light only">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vacantes médicas y Programa de Referidos · Grupo Reina Madre</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap">
+<style>
+/* Colores registrados para que el cambio de marca se funda suavemente */
+@property --bg{syntax:'<color>';inherits:true;initial-value:#fff}
+@property --surface{syntax:'<color>';inherits:true;initial-value:#fff}
+@property --surface-2{syntax:'<color>';inherits:true;initial-value:#fff}
+@property --line{syntax:'<color>';inherits:true;initial-value:#ddd}
+@property --ink{syntax:'<color>';inherits:true;initial-value:#000}
+@property --ink-2{syntax:'<color>';inherits:true;initial-value:#333}
+@property --muted{syntax:'<color>';inherits:true;initial-value:#777}
+@property --accent{syntax:'<color>';inherits:true;initial-value:#888}
+@property --accent-ink{syntax:'<color>';inherits:true;initial-value:#555}
+@property --soft{syntax:'<color>';inherits:true;initial-value:#ccc}
+@property --hot{syntax:'<color>';inherits:true;initial-value:#c00}
+@property --feat{syntax:'<color>';inherits:true;initial-value:#555}
+@property --feat-hi{syntax:'<color>';inherits:true;initial-value:#fff}
+@property --orb1{syntax:'<color>';inherits:true;initial-value:#ccc}
+@property --orb2{syntax:'<color>';inherits:true;initial-value:#ccc}
+@property --orb3{syntax:'<color>';inherits:true;initial-value:#ccc}
+
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --ease:cubic-bezier(.2,.8,.2,1);
+  --spring:cubic-bezier(.34,1.45,.64,1);
+  --orb-op:.5;
+  transition:--bg .8s var(--ease),--surface .8s var(--ease),--surface-2 .8s var(--ease),--line .8s var(--ease),--ink .8s var(--ease),--ink-2 .8s var(--ease),--muted .8s var(--ease),--accent .8s var(--ease),--accent-ink .8s var(--ease),--soft .8s var(--ease),--hot .8s var(--ease),--feat .8s var(--ease),--feat-hi .8s var(--ease),--orb1 1.2s var(--ease),--orb2 1.2s var(--ease),--orb3 1.2s var(--ease);
+}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 80px)}
+
+/* ---------- Grupo Reina Madre · identidad 2026 ---------- */
+:root[data-brand="rm"]{
+  color-scheme:light;
+  --bg:#F0EFDE; --surface:rgba(255,255,255,.82); --surface-2:rgba(255,255,255,.95); --line:rgba(89,64,104,.12);
+  --card-bd:rgba(123,198,187,.55);
+  --head:#8D5FA3; --ink:#594068; --ink-2:#594068; --muted:#727272;
+  --accent:#8D5FA3; --accent-ink:#8D5FA3; --soft:#B3B3DA; --hot:#E980A7; --on-hot:#3B2845;
+  --feat:#8D5FA3; --feat-hi:#7BC6BB;
+  --dark:linear-gradient(180deg,#8D5FA3 0%,#5A3D69 55%,#1E1424 135%);
+  --orb1:#B3B3DA; --orb2:#E980A7; --orb3:#7BC6BB; --orb-op:.32;
+  --f-head:"Poppins","Montserrat",Arial,sans-serif;
+  --f-body:"Poppins","Montserrat",Arial,sans-serif;
+  --head-w:800; --head-track:-.015em;
+  --shadow:0 6px 18px rgba(89,64,104,.12);
+  --shadow-hi:0 14px 34px -8px rgba(89,64,104,.26);
+}
+/* ---------- Vacantes y contenidos de María Linda: acento aqua ---------- */
+.ml{
+  --line:rgba(123,198,187,.35); --card-bd:rgba(123,198,187,.9);
+  --accent:#7BC6BB; --accent-ink:#3B2845; --soft:#7BC6BB; --hot:#7BC6BB; --on-hot:#1E1424;
+}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{min-height:100%}
+body{margin:0;background:linear-gradient(135deg,#EFEBDA 0%,#F5F3E8 55%,#FBFAF5 100%) fixed,var(--bg);color:var(--ink);font-family:var(--f-body);font-weight:500;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+a{color:inherit}
+img{max-width:100%}
+:focus-visible{outline:3px solid #7BC6BB;outline-offset:2px;border-radius:10px}
+h1,h2,h3{font-family:var(--f-head);font-weight:var(--head-w);letter-spacing:var(--head-track);margin:0;text-wrap:balance;color:var(--head)}
+h1 em,h2 em{font-style:normal;color:#E980A7}
+h1 em.aq{color:#7BC6BB}
+
+/* ---------- Luces de fondo ---------- */
+.orbs{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(72px);opacity:var(--orb-op)}
+.orb.o1{width:48vw;height:48vw;left:-12vw;top:-16vw;background:var(--orb1);animation:drift1 22s ease-in-out infinite alternate}
+.orb.o2{width:40vw;height:40vw;right:-10vw;top:10vh;background:var(--orb2);opacity:calc(var(--orb-op)*.7);animation:drift2 26s ease-in-out infinite alternate}
+.orb.o3{width:36vw;height:36vw;left:28vw;bottom:-20vw;background:var(--orb3);opacity:calc(var(--orb-op)*.55);animation:drift3 30s ease-in-out infinite alternate}
+@keyframes drift1{to{transform:translate(8vw,6vh) scale(1.08)}}
+@keyframes drift2{to{transform:translate(-6vw,10vh) scale(.92)}}
+@keyframes drift3{to{transform:translate(-8vw,-6vh) scale(1.1)}}
+
+/* ---------- Estructura ---------- */
+.shell{position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:18px max(18px,env(safe-area-inset-right,0px)) 40px max(18px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:22px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px 24px;flex-wrap:wrap;background:#F7F5EC;border-radius:22px;box-shadow:var(--shadow);padding:14px 24px}
+.grm{display:block;height:40px;width:auto}
+.logo{display:flex;align-items:center;gap:16px}
+.logo img{height:46px;width:auto;display:block}
+.logo .sep{width:1px;height:36px;background:#E7E5D5}
+
+/* ---------- Hero ---------- */
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:22px;align-items:stretch}
+.intro{display:flex;flex-direction:column;justify-content:center;gap:16px;padding:8px 4px}
+.intro .kick{display:inline-flex;align-self:flex-start;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.7);border:1.5px solid #8D5FA3;font-size:13px;font-weight:600;color:#8D5FA3}
+.intro .kick i{width:8px;height:8px;border-radius:50%;background:var(--hot);animation:ping 2.4s infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 color-mix(in oklab,var(--hot) 55%,transparent)}70%,100%{box-shadow:0 0 0 8px transparent}}
+.intro h1{font-size:clamp(32px,4.4vw,54px);line-height:1.02}
+.intro p{margin:0;font-size:16.5px;color:var(--ink-2);max-width:56ch}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:700;font-size:14.5px;text-decoration:none;transition:transform .2s var(--ease),box-shadow .3s var(--ease),background .3s}
+.btn:active{transform:scale(.97)}
+.btn{font-weight:600}
+.btn.pri{background:#8D5FA3;color:#fff;box-shadow:var(--shadow)}
+.btn.pri:hover{background:#E980A7;color:#3B2845;box-shadow:var(--shadow-hi);transform:translateY(-2px)}
+.btn.sec{background:rgba(255,255,255,.8);color:#8D5FA3;border:1.5px solid #8D5FA3}
+.btn.sec:hover{transform:translateY(-2px)}
+.btn svg{flex:none}
+
+.bono{position:relative;overflow:hidden;border-radius:32px;padding:26px 28px 24px;color:#F0EFDE;background:var(--dark);box-shadow:var(--shadow-hi);display:flex;flex-direction:column;gap:14px;isolation:isolate}
+.bono::before,.bono::after{content:"";position:absolute;border-radius:50%;z-index:-1;pointer-events:none}
+.bono::before{width:340px;height:340px;right:-120px;top:-150px;border:44px solid rgba(123,198,187,.12)}
+.bono::after{width:240px;height:240px;right:-50px;bottom:-140px;background:radial-gradient(circle,rgba(233,128,167,.35),transparent 68%)}
+.bono .lbl{font-size:14px;font-weight:600;color:rgba(255,255,255,.88)}
+.bono .money{font-family:var(--f-head);font-weight:var(--head-w);font-size:clamp(54px,7.4vw,92px);line-height:.95;letter-spacing:-.03em;color:var(--feat-hi);font-variant-numeric:tabular-nums}
+.bono .money small{display:block;font-size:15px;letter-spacing:0;font-family:var(--f-body);font-weight:600;color:rgba(255,255,255,.92);margin-top:8px}
+.pays{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:relative}
+.pay{padding:12px 14px;border-radius:18px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.16)}
+.pay b{display:block;font-family:var(--f-head);font-weight:var(--head-w);font-size:22px;font-variant-numeric:tabular-nums}
+.pay span{font-size:12.5px;color:rgba(255,255,255,.86)}
+.clock{display:flex;flex-direction:column;gap:7px}
+.clock .row{display:flex;justify-content:space-between;gap:10px;font-size:12.5px;color:rgba(255,255,255,.86);flex-wrap:wrap}
+.clock .row b{color:#fff;font-weight:700}
+.clock .trk{position:relative;height:8px;border-radius:999px;background:rgba(255,255,255,.18);overflow:hidden}
+.clock .fill{position:absolute;inset:0 auto 0 0;border-radius:999px;background:linear-gradient(90deg,#7BC6BB,#E980A7);transform-origin:left center;transition:width 1.1s var(--ease)}
+
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.stat{padding:16px 18px;border-radius:24px;background:var(--surface);border:1px solid var(--line);backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%);box-shadow:var(--shadow)}
+.stat{border:1.5px solid var(--card-bd)!important}
+.stat b{display:block;font-family:var(--f-head);font-weight:800;font-size:38px;line-height:1.05;color:#8D5FA3;font-variant-numeric:tabular-nums;padding-bottom:6px;margin-bottom:6px;border-bottom:1.5px solid #7BC6BB}
+.stat:nth-child(2) b{color:#7BC6BB}
+.stat:nth-child(3) b{color:#E980A7}
+.stat:nth-child(4) b{color:#DA7467}
+.stat span{font-size:13px;color:var(--ink-2);font-weight:600}
+
+/* ---------- Pestañas ---------- */
+.tabwrap{position:sticky;top:calc(env(safe-area-inset-top,0px) + 10px);z-index:20;display:flex;justify-content:center}
+.tabs{position:relative;display:flex;gap:2px;padding:5px;background:var(--surface-2);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:999px;box-shadow:var(--shadow);overflow-x:auto;max-width:100%;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{position:relative;z-index:1;padding:9px 18px;border-radius:999px;font-weight:700;font-size:14px;color:var(--muted);white-space:nowrap;transition:color .3s}
+.tabs button[aria-selected="true"]{color:#fff}
+.tabs .ind{position:absolute;z-index:0;top:5px;bottom:5px;border-radius:999px;background:#8D5FA3;transition:left .5s var(--spring),width .5s var(--spring),top .5s var(--spring)}
+
+/* ---------- Tarjetas ---------- */
+.panel{display:flex;flex-direction:column;gap:18px;min-width:0}
+.panel.enter{animation:pin .45s var(--ease)}
+@keyframes pin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(12,minmax(0,1fr))}
+.s4{grid-column:span 4}.s5{grid-column:span 5}.s6{grid-column:span 6}.s7{grid-column:span 7}.s8{grid-column:span 8}.s12{grid-column:span 12}
+.card{position:relative;background:var(--surface);border:1.5px solid var(--card-bd);border-radius:22px;padding:20px 22px;box-shadow:var(--shadow);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);min-width:0}
+.ch{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.ch h2{font-size:18px}
+.ch p{margin:2px 0 0;font-size:13px;color:var(--muted)}
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:6px 2px -4px}
+.sec-h h2{font-size:clamp(22px,2.4vw,30px)}
+.sec-h p{margin:0;color:var(--muted);font-size:13.5px}
+
+/* Barras que filtran */
+.bars{display:flex;flex-direction:column;gap:6px}
+.bars button{display:grid;grid-template-columns:minmax(120px,230px) minmax(0,1fr) 32px;gap:12px;align-items:center;padding:7px 8px;border-radius:12px;text-align:left;font-size:13.5px;transition:background .25s,opacity .3s}
+.bars button:hover{background:color-mix(in oklab,var(--ink) 5%,transparent)}
+.bars.has-sel button[aria-pressed="false"]{opacity:.45}
+.bars button[aria-pressed="true"]{background:var(--surface-2);box-shadow:var(--shadow)}
+.bars .l{color:var(--ink-2);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bars .t{position:relative;height:12px;border-radius:999px;background:#E7E5D5}
+.bars .b{position:absolute;left:0;top:0;bottom:0;border-radius:999px;background:var(--accent);transition:width .8s var(--ease)}
+.bars .v{text-align:right;font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums}
+
+/* Barra de filtros */
+.fbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.search{display:flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface-2);color:var(--muted);flex:1;min-width:220px;max-width:360px}
+.search input{border:0;background:transparent;outline:0;font:inherit;color:var(--ink);width:100%}
+.search input::placeholder{color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips button{padding:8px 14px;border-radius:999px;font-size:13px;font-weight:700;color:var(--ink-2);background:color-mix(in oklab,var(--ink) 6%,transparent);border:1px solid transparent;transition:background .25s,color .25s,border-color .25s,transform .15s}
+.chips button:hover{background:color-mix(in oklab,var(--ink) 10%,transparent)}
+.chips button:active{transform:scale(.96)}
+.chips button[aria-pressed="true"]{background:var(--surface-2);color:var(--accent-ink);border-color:color-mix(in oklab,var(--accent) 60%,transparent);box-shadow:var(--shadow)}
+.fcount{margin-left:auto;font-size:13px;color:var(--muted);display:flex;align-items:center;gap:10px}
+.fcount b{color:var(--ink)}
+.sel{position:relative;display:flex;flex-direction:column;gap:4px;flex:1 1 180px;max-width:280px;min-width:0}
+.sel span{font-size:12px;font-weight:700;color:var(--muted);padding-left:16px}
+.sel select{appearance:none;-webkit-appearance:none;width:100%;font:inherit;font-size:14px;font-weight:600;color:var(--ink);background:var(--surface-2);border:1.5px solid var(--card-bd);border-radius:999px;padding:10px 40px 10px 16px;cursor:pointer;box-shadow:var(--shadow);transition:border-color .25s,color .25s}
+.sel select.on{border-color:#8D5FA3;color:#8D5FA3}
+.sel::after{content:"";position:absolute;right:18px;bottom:18px;width:8px;height:8px;border-right:2px solid #8D5FA3;border-bottom:2px solid #8D5FA3;transform:rotate(45deg);pointer-events:none}
+.link{font-weight:600;color:#8D5FA3;text-decoration:underline;text-underline-offset:3px}
+
+/* Sucursales */
+.region{display:flex;flex-direction:column;gap:12px}
+.region h3{font-size:15px;color:var(--accent-ink);display:flex;align-items:center;gap:12px}
+.region h3::after{content:"";flex:1;height:1.5px;background:#7BC6BB;opacity:.6}
+.sucs{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr))}
+.suc{display:flex;flex-direction:column;padding:18px 18px 10px;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.suc:hover{transform:translateY(-4px);box-shadow:var(--shadow-hi)}
+.suc header{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.suc h4{margin:0;font-family:var(--f-head);font-weight:800;font-size:19px;letter-spacing:var(--head-track);color:#8D5FA3}
+.suc header small{display:block;font-size:12.5px;color:var(--muted);margin-top:1px}
+.cnt{flex:none;font-size:12px;font-weight:700;padding:4px 11px;border-radius:999px;background:#8D5FA3;color:#fff;font-variant-numeric:tabular-nums}
+.ml .cnt{background:#7BC6BB;color:#1E1424}
+.vac{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line)}
+.vac:last-child{border-bottom:0}
+.vac .e{font-weight:700;color:var(--ink);font-size:14.5px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.vac .d{grid-column:1;font-size:13px;color:var(--ink-2);display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.turno{display:inline-block;font-size:11.5px;font-weight:700;padding:2px 10px;border-radius:999px;background:color-mix(in oklab,var(--accent) 20%,transparent);color:var(--accent-ink)}
+.new{font-size:11px;font-weight:700;padding:2px 9px;border-radius:999px;background:#E980A7;color:#3B2845}
+.vac .ref{grid-row:1/span 2;grid-column:2;padding:8px 14px;border-radius:999px;font-size:13px;font-weight:800;color:var(--accent-ink);background:var(--surface-2);border:1px solid var(--line);transition:background .25s,color .25s,transform .15s}
+.vac .ref:hover{background:#8D5FA3;color:#fff;border-color:transparent}
+.vac.ml .ref:hover{background:#7BC6BB;color:#1E1424}
+.vac .ref:active{transform:scale(.96)}
+.empty{text-align:center;padding:40px 20px}
+.empty p{margin:0 0 12px;color:var(--ink-2)}
+
+.cross{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:18px 22px;border-radius:26px;border:1px dashed color-mix(in oklab,var(--accent) 55%,transparent);background:var(--surface)}
+.cross p{margin:0;color:var(--ink-2);max-width:62ch}
+.cross p b{color:var(--ink)}
+
+/* Cómo referir */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;counter-reset:st}
+.step{display:flex;flex-direction:column;gap:10px}
+.step .n{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#E980A7;color:#3B2845;font-style:italic;font-family:var(--f-head);font-weight:var(--head-w);font-size:18px}
+.step h3{font-size:18px}
+.step p{margin:0;color:var(--ink-2);font-size:14.5px}
+.tl{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:8px}
+.tl .node{position:relative;padding:34px 8px 0 0}
+.tl .node::before{content:"";position:absolute;left:0;top:6px;width:18px;height:18px;border-radius:50%;background:var(--feat);box-shadow:0 0 0 6px color-mix(in oklab,var(--accent) 22%,transparent)}
+.tl .line{position:absolute;left:9px;right:calc(50% - 9px);top:14px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--feat),var(--accent));transform-origin:left;animation:grow 1s var(--ease) both .15s}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.tl .node:nth-child(3) b{color:#7BC6BB}
+.tl b{display:block;font-family:var(--f-head);font-weight:800;font-size:32px;color:#8D5FA3;font-variant-numeric:tabular-nums}
+.tl span{font-size:13.5px;color:var(--ink-2)}
+.note{font-size:13.5px;color:var(--ink-2);padding:12px 18px;border-radius:999px;border:1.5px solid #8D5FA3;background:rgba(255,255,255,.6);margin-top:16px}
+.note b{color:var(--ink)}
+.contact{display:flex;flex-direction:column;gap:12px}
+.phone{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:center;padding:12px 14px;border-radius:18px;background:var(--surface-2);border:1px solid var(--line)}
+.phone .ic{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--feat);color:#fff}
+.phone a.num{font-family:var(--f-head);font-weight:800;font-size:21px;text-decoration:none;color:#8D5FA3;font-variant-numeric:tabular-nums;letter-spacing:.01em}
+.phone .wa{padding:8px 13px;border-radius:999px;font-size:13px;font-weight:700;background:rgba(123,198,187,.28);color:#3B2845;text-decoration:none;white-space:nowrap}
+
+/* Requisitos */
+.req2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.req2 h3{font-size:15px;color:var(--accent-ink);margin-bottom:8px}
+.dots{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.dots li{position:relative;padding-left:22px;font-size:14.5px;color:var(--ink-2)}
+.dots li::before{content:"";position:absolute;left:0;top:.38em;width:13px;height:13px;background:var(--hot);clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.tw{overflow-x:auto}
+table.rq{width:100%;border-collapse:collapse;font-size:14px;min-width:620px}
+.rq thead{background:#8D5FA3}
+.rq th{font-size:12.5px;color:#fff;text-align:left;font-weight:700;padding:8px 10px;border-bottom:1px solid var(--line)}
+.rq tbody tr:nth-child(even){background:rgba(248,246,224,.7)}
+.rq tr.ml{background:rgba(123,198,187,.14)!important}
+.rq td{padding:14px 10px;border-bottom:1.5px solid rgba(123,198,187,.35);vertical-align:top;color:var(--ink-2)}
+.rq tr:last-child td{border-bottom:0}
+.rq td:first-child{font-family:var(--f-head);font-weight:800;color:#8D5FA3;font-size:15.5px;letter-spacing:var(--head-track)}
+.rq td:first-child small{display:block;font-family:var(--f-body);font-weight:600;font-size:12px;color:var(--muted);letter-spacing:0;margin-top:2px}
+.rq td.gen{color:var(--muted)}
+
+/* Beneficios */
+.bens{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.ben{display:flex;flex-direction:column;gap:10px;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.ben:hover{transform:translateY(-4px);box-shadow:var(--shadow-hi)}
+.ben .ic{width:46px;height:46px;border-radius:15px;display:grid;place-items:center;background:color-mix(in oklab,var(--accent) 18%,transparent);color:#8D5FA3}
+.ml .ben .ic{color:#3B2845}
+.ben h3{font-size:17px}
+.ben p{margin:0;color:var(--ink-2);font-size:14.5px}
+.banner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:22px 26px;border-radius:24px;background:var(--dark);color:#F0EFDE;box-shadow:var(--shadow-hi)}
+.banner p{margin:0;font-size:16px;max-width:52ch;color:#F0EFDE}
+.banner b.amt{font-family:var(--f-head);font-weight:var(--head-w);font-size:clamp(34px,4vw,48px);color:var(--feat-hi);font-variant-numeric:tabular-nums}
+
+/* Pie */
+.foot{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:20px 24px;border-radius:24px;background:linear-gradient(90deg,#3B2845,#8D5FA3);color:#F0EFDE;margin-top:8px}
+.foot strong{font-family:var(--f-head);font-weight:var(--head-w);font-size:18px}
+.foot strong em{font-style:normal;color:#7BC6BB}
+.foot span{font-size:12.5px;color:rgba(240,239,222,.85)}
+
+/* Diálogo para referir */
+dialog{border:0;padding:0;border-radius:28px;width:min(560px,calc(100vw - 24px));max-height:calc(100dvh - 32px);background:var(--surface-2);color:var(--ink);box-shadow:0 30px 80px -20px rgba(0,0,0,.45)}
+dialog[open]{animation:dlg .4s var(--spring)}
+@keyframes dlg{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}
+dialog::backdrop{background:color-mix(in oklab,var(--ink) 35%,transparent);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.dl{padding:22px 22px 20px;display:flex;flex-direction:column;gap:14px;font-family:var(--f-body)}
+.dl header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.dl h2{font-size:21px}
+.dl header p{margin:3px 0 0;color:var(--muted);font-size:13.5px}
+.x{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);flex:none;color:var(--muted)}
+.dl textarea{width:100%;min-height:270px;resize:vertical;border-radius:16px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:14px;padding:12px 14px;line-height:1.5}
+.dl .acts{display:flex;flex-wrap:wrap;gap:8px}
+.dl .hint{font-size:12.5px;color:var(--muted);margin:0}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);opacity:0;padding:11px 18px;border-radius:999px;background:var(--ink);color:var(--bg);font-weight:700;font-size:13.5px;z-index:80;pointer-events:none;transition:opacity .3s,transform .4s var(--spring)}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+/* ---------- Responsivo ---------- */
+@media (max-width:980px){
+  .hero{grid-template-columns:minmax(0,1fr)}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .s4,.s5,.s6,.s7,.s8{grid-column:span 12}
+  .steps,.bens{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:640px){
+  .shell{gap:18px;padding-top:12px}
+  .top{justify-content:center}
+  .top{flex-direction:column;padding:14px 16px;gap:10px}
+  .grm{height:26px}
+  .logo{gap:12px}
+  .logo img{height:36px}
+  .logo .sep{height:28px}
+  .shell>*{order:3}
+  .shell>.top{order:0}
+  .shell>.tabwrap{order:1;justify-content:stretch}
+  .tabs{width:100%;display:grid;grid-template-columns:1fr 1fr;border-radius:24px}
+  .tabs button{padding:10px 8px;font-size:13.5px}
+  html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 128px)}
+  .steps,.bens,.req2{grid-template-columns:minmax(0,1fr)}
+  .pays{grid-template-columns:1fr 1fr}
+  .bono{padding:22px 20px 20px;border-radius:26px}
+  .bars button{grid-template-columns:minmax(0,1fr) 28px;grid-template-areas:"l v" "t t";row-gap:7px;padding:9px 8px}
+  .bars .l{grid-area:l;white-space:normal}
+  .bars .t{grid-area:t}
+  .bars .v{grid-area:v}
+  .fcount{margin-left:0;width:100%}
+  .sel{flex:1 1 140px;max-width:none}
+  .sel.wide{flex-basis:100%}
+  .phone a.num{font-size:18px}
+  .stat b{font-size:30px}
+}
+@media (prefers-reduced-motion:reduce){
+  .orb,.intro .kick i{animation:none}
+  *,::before,::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
+}
+
+/* ---------- Vacantes combinadas ---------- */
+.tag-ml{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 9px;border-radius:999px;border:1.5px solid #7BC6BB;background:rgba(123,198,187,.22);color:#3B2845;white-space:nowrap;font-family:var(--f-body);letter-spacing:0}
+.vac.ml{margin:4px -10px;padding:11px 10px;border-radius:16px;background:rgba(123,198,187,.16);border-bottom-color:transparent}
+.suc.ml{border-width:2px;background:linear-gradient(180deg,rgba(123,198,187,.14),rgba(255,255,255,.85) 40%)}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:12.5px;color:var(--ink-2);font-weight:700}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.legend i{width:11px;height:11px;border-radius:4px;display:inline-block}
+.bars .l .tag-ml{margin-left:6px;vertical-align:1px}
+.stat .split{display:flex;gap:6px 12px;flex-wrap:wrap;margin-top:6px;font-size:12px;font-weight:800}
+.stat .split span{padding:2px 9px;border-radius:999px;color:#3B2845}
+.stat .split .r{background:rgba(141,95,163,.16)}
+.stat .split .m{background:rgba(123,198,187,.3)}
+.bgroup{display:flex;flex-direction:column;gap:14px}
+.bgroup>h3{font-size:18px;color:var(--accent-ink);display:flex;align-items:center;gap:12px}
+.bgroup>h3::after{content:"";flex:1;height:1.5px;background:#7BC6BB;opacity:.6}
+</style>
+</head>
+<body>
+<div class="orbs" aria-hidden="true"><i class="orb o1"></i><i class="orb o2"></i><i class="orb o3"></i></div>
+
+<div class="shell">
+  <header class="top">
+    <svg class="grm" role="img" aria-label="Grupo Reina Madre" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1166 160"><path fill="#8D5FA3" d="M 144.4,51 C 147,51 149.4,51.1 151.6,51.4 C 153.8,51.7 155.9,52 158,52.5 C 160,53 162,53.5 163.9,54.2 C 165.8,54.9 167.8,55.6 169.7,56.4 L 169.7,62.6 C 168.2,61.6 166.5,60.7 164.8,59.8 C 163,59 161.1,58.2 159.1,57.6 C 157.1,56.9 154.9,56.4 152.6,56 C 150.3,55.6 147.8,55.4 145.1,55.4 C 139.7,55.4 135,56 130.9,57.2 C 126.9,58.3 123.5,59.9 120.9,62 C 118.2,64.1 116.2,66.7 114.8,69.8 C 113.5,72.8 112.8,76.2 112.8,80 C 112.8,83.5 113.5,86.8 114.8,89.8 C 116.1,92.8 118.1,95.4 120.8,97.6 C 123.4,99.7 126.8,101.4 130.8,102.6 C 134.8,103.9 139.5,104.5 144.9,104.5 C 147,104.5 149.1,104.4 151.2,104.2 C 153.3,104.1 155.2,103.9 157.1,103.6 C 158.9,103.3 160.6,103.1 162.1,102.7 C 163.6,102.4 164.9,102.1 166,101.8 L 166,84.8 L 143.3,84.8 L 143.3,80.1 L 171.1,80.1 L 171.1,104.6 C 169,105.3 167,106 165,106.5 C 162.9,107 160.8,107.5 158.6,107.9 C 156.5,108.2 154.2,108.5 151.8,108.7 C 149.5,108.9 147,109 144.5,109 C 139.2,109 134.3,108.4 129.8,107.2 C 125.3,106 121.4,104.2 118.1,101.9 C 114.9,99.5 112.3,96.4 110.4,92.8 C 108.5,89.2 107.6,84.9 107.6,80 C 107.6,76.7 108,73.7 108.9,71 C 109.8,68.3 111,65.9 112.6,63.8 C 114.2,61.6 116.1,59.7 118.3,58.1 C 120.5,56.5 123,55.2 125.7,54.2 C 128.5,53.1 131.4,52.3 134.6,51.8 C 137.7,51.3 141,51 144.4,51 M 216.2,56.3 C 214.8,56 213,55.9 210.8,55.9 C 207.7,55.9 204.9,56.2 202.2,57 C 199.6,57.7 197.1,58.7 194.8,60 C 192.5,61.3 190.4,62.8 188.4,64.5 C 186.5,66.2 184.7,68 183.1,69.9 L 183.1,108.6 L 178.1,108.6 L 178.1,52.8 L 183.1,52.8 L 183.1,64.2 C 185,62.3 186.9,60.6 189.1,59 C 191.2,57.4 193.4,56.1 195.8,55 C 198.1,53.8 200.6,53 203.2,52.3 C 205.8,51.7 208.5,51.4 211.2,51.4 C 212.2,51.4 213,51.4 213.8,51.4 C 214.5,51.5 215.2,51.5 215.9,51.6 C 216.5,51.7 217.1,51.7 217.7,51.8 C 218.3,51.9 218.8,52 219.4,52.1 L 219.4,57.1 C 218.7,56.8 217.6,56.6 216.2,56.3 M 232.1,51.4 L 232.1,88.3 C 232.1,91.4 232.5,93.9 233.3,96 C 234.1,98 235.3,99.5 236.8,100.7 C 238.3,101.8 240.2,102.6 242.4,103.1 C 244.5,103.5 247,103.8 249.7,103.8 C 252.9,103.8 256,103.4 259,102.6 C 262.1,101.8 264.9,100.9 267.6,99.7 C 270.3,98.5 272.7,97.2 275,95.7 C 277.2,94.3 279.1,92.9 280.7,91.6 L 280.7,51.4 L 285.9,51.4 L 285.9,107.3 L 280.7,107.3 L 280.7,97.4 C 278.8,98.6 276.7,99.9 274.4,101.2 C 272.2,102.5 269.8,103.7 267.1,104.8 C 264.5,105.9 261.7,106.8 258.8,107.5 C 255.8,108.2 252.6,108.6 249.3,108.6 C 245.5,108.6 242.3,108.1 239.4,107.2 C 236.6,106.2 234.3,104.9 232.5,103.2 C 230.6,101.5 229.2,99.5 228.3,97.1 C 227.4,94.8 226.9,92.2 226.9,89.4 L 226.9,51.4 Z M 232.1,51.4 M 342.6,69.2 C 342.6,66.6 342.1,64.4 341.2,62.8 C 340.4,61.2 339,59.9 337.2,59 C 335.3,58.2 333,57.6 330.2,57.3 C 327.4,57 324.1,56.8 320.2,56.8 L 298.4,56.8 L 298.4,81.7 L 320.2,81.7 C 321.7,81.7 323.3,81.7 325,81.7 C 326.7,81.7 328.4,81.7 330,81.5 C 331.7,81.3 333.3,81 334.8,80.5 C 336.3,80.1 337.6,79.4 338.8,78.5 C 339.9,77.6 340.8,76.4 341.5,74.9 C 342.2,73.4 342.6,71.5 342.6,69.2 M 347.8,69.2 C 347.8,72 347.3,74.5 346.4,76.6 C 345.5,78.8 344.1,80.6 342.1,82 C 340.2,83.5 337.7,84.6 334.6,85.3 C 331.5,86.1 327.8,86.5 323.5,86.5 L 298.4,86.5 L 298.4,107.9 L 293.3,107.9 L 293.3,52.1 L 323.5,52.1 C 327.8,52.1 331.5,52.4 334.6,53.2 C 337.7,53.9 340.2,55 342.1,56.5 C 344.1,57.9 345.5,59.7 346.4,61.8 C 347.3,64 347.8,66.4 347.8,69.2 M 418.4,80 C 418.4,76 417.7,72.5 416.4,69.5 C 415.1,66.5 413.2,63.9 410.7,61.9 C 408.2,59.8 405.1,58.2 401.3,57.1 C 397.5,56.1 393.2,55.5 388.2,55.5 C 383.3,55.5 378.9,56.1 375.1,57.2 C 371.3,58.2 368.2,59.8 365.6,61.9 C 363.1,64 361.1,66.5 359.8,69.6 C 358.5,72.6 357.9,76.1 357.9,80 C 357.9,84 358.5,87.5 359.8,90.5 C 361.1,93.5 363.1,96.1 365.6,98.1 C 368.2,100.2 371.3,101.8 375.1,102.9 C 378.9,103.9 383.3,104.5 388.2,104.5 C 393.2,104.5 397.5,103.9 401.3,102.9 C 405.1,101.8 408.2,100.2 410.7,98.1 C 413.2,96.1 415.1,93.5 416.4,90.5 C 417.7,87.5 418.4,84 418.4,80 M 423.6,80 C 423.6,85 422.7,89.3 420.8,93 C 419,96.6 416.5,99.6 413.4,102 C 410.2,104.4 406.5,106.1 402.2,107.3 C 397.9,108.4 393.2,109 388.2,109 C 383.2,109 378.5,108.4 374.2,107.3 C 369.9,106.1 366.1,104.4 362.9,102 C 359.7,99.6 357.2,96.6 355.4,93 C 353.6,89.3 352.7,85 352.7,80 C 352.7,76.7 353.1,73.6 353.9,70.9 C 354.8,68.2 356,65.7 357.5,63.6 C 359,61.4 360.8,59.6 363,58 C 365.1,56.4 367.5,55.1 370.2,54.1 C 372.8,53 375.6,52.3 378.7,51.8 C 381.7,51.3 384.9,51 388.2,51 C 393.2,51 397.9,51.6 402.2,52.7 C 406.5,53.9 410.2,55.6 413.4,58 C 416.5,60.4 419,63.4 420.8,67 C 422.7,70.7 423.6,75 423.6,80 M 80,0 C 80,0 55.5,29.5 80,80 C 104.5,29.5 80,0 80,0 M 23.4,136.6 C 23.4,136.6 27,98.4 80,80 C 61.6,133 23.4,136.6 23.4,136.6"/><path fill="#E980A7" d="M 492.9,69.2 C 492.9,68.1 492.7,67.1 492.4,66.3 C 492.1,65.5 491.6,64.9 490.8,64.4 C 490.1,63.9 489.1,63.5 487.9,63.3 C 486.6,63 485.1,62.9 483.3,62.9 L 461.6,62.9 L 461.6,75.5 L 483.3,75.5 C 485.1,75.5 486.6,75.4 487.9,75.1 C 489.1,74.9 490.1,74.5 490.8,74.1 C 491.6,73.5 492.1,72.9 492.4,72.1 C 492.7,71.3 492.9,70.3 492.9,69.2 M 461.6,109.3 L 445.8,109.3 L 445.8,50.7 L 485.4,50.7 C 489.7,50.7 493.3,51.1 496.3,52 C 499.3,52.9 501.7,54.1 503.5,55.8 C 505.4,57.4 506.8,59.3 507.6,61.6 C 508.4,63.9 508.9,66.5 508.9,69.3 C 508.9,71.8 508.5,73.9 507.8,75.8 C 507.1,77.6 506.2,79.2 505,80.5 C 503.8,81.9 502.4,83 500.9,83.9 C 499.3,84.8 497.7,85.5 495.9,86.1 L 515.1,109.3 L 496.6,109.3 L 478.9,87.7 L 461.6,87.7 Z M 461.6,109.3 M 518.1,109.3 L 518.1,50.7 L 577.4,50.7 L 577.4,63.2 L 534.3,63.2 L 534.3,72.9 L 575.2,72.9 L 575.2,85.4 L 534.3,85.4 L 534.3,96.8 L 578,96.8 L 578,109.3 Z M 518.1,109.3 M 586,50.7 L 601.9,50.7 L 601.9,109.3 L 586,109.3 Z M 586,50.7 M 665,109.3 L 625.4,69 L 625.4,109.3 L 609.6,109.3 L 609.6,50.7 L 626.8,50.7 L 666.4,91.1 L 666.4,50.7 L 682.1,50.7 L 682.1,109.3 Z M 665,109.3 M 713.3,86.8 L 734.7,86.8 L 724.1,65.2 Z M 740.3,98.2 L 707.6,98.2 L 702.1,109.3 L 684.5,109.3 L 715.1,50.7 L 732.8,50.7 L 763.5,109.3 L 745.8,109.3 Z M 740.3,98.2 M 0,80 C 0,80 29.5,104.5 80,80 C 29.5,55.5 0,80 0,80"/><path fill="#7BC6BB" d="M 858.2,109.3 L 858.2,68.1 L 836.5,109.3 L 821.3,109.3 L 799.5,68.1 L 799.5,109.3 L 783.7,109.3 L 783.7,50.7 L 805.2,50.7 L 828.9,95.1 L 852.6,50.7 L 874,50.7 L 874,109.3 Z M 858.2,109.3 M 905.2,86.8 L 926.6,86.8 L 915.9,65.2 Z M 932.2,98.2 L 899.5,98.2 L 894,109.3 L 876.3,109.3 L 907,50.7 L 924.7,50.7 L 955.3,109.3 L 937.7,109.3 Z M 932.2,98.2 M 1013.5,80 C 1013.5,77.1 1013.1,74.7 1012.4,72.6 C 1011.7,70.5 1010.5,68.8 1008.9,67.5 C 1007.3,66.1 1005.2,65.1 1002.6,64.4 C 1000,63.8 996.9,63.4 993.1,63.4 L 973.5,63.4 L 973.5,96.6 L 993.1,96.6 C 996.9,96.6 1000,96.2 1002.6,95.6 C 1005.2,94.9 1007.3,93.9 1008.9,92.5 C 1010.5,91.1 1011.7,89.4 1012.4,87.3 C 1013.1,85.2 1013.5,82.8 1013.5,80 M 1029.4,80 C 1029.4,83.7 1029,87 1028.2,90 C 1027.4,92.9 1026.2,95.4 1024.7,97.6 C 1023.2,99.7 1021.5,101.6 1019.4,103.1 C 1017.3,104.6 1014.9,105.8 1012.4,106.7 C 1009.8,107.6 1007.1,108.3 1004.1,108.7 C 1001.1,109.1 998.1,109.3 994.8,109.3 L 957.6,109.3 L 957.6,50.7 L 994.8,50.7 C 998,50.7 1001.1,50.9 1004,51.3 C 1007,51.7 1009.7,52.4 1012.3,53.3 C 1014.9,54.2 1017.2,55.4 1019.3,56.9 C 1021.4,58.4 1023.2,60.2 1024.7,62.4 C 1026.2,64.6 1027.4,67.1 1028.2,70 C 1029,72.9 1029.4,76.2 1029.4,80 M 1080.4,69.2 C 1080.4,68.1 1080.2,67.1 1079.9,66.3 C 1079.6,65.5 1079.1,64.9 1078.4,64.4 C 1077.6,63.9 1076.6,63.5 1075.4,63.3 C 1074.2,63 1072.6,62.9 1070.8,62.9 L 1049.1,62.9 L 1049.1,75.5 L 1070.8,75.5 C 1072.6,75.5 1074.2,75.4 1075.4,75.1 C 1076.6,74.9 1077.6,74.5 1078.4,74.1 C 1079.1,73.5 1079.6,72.9 1079.9,72.1 C 1080.2,71.3 1080.4,70.3 1080.4,69.2 M 1049.1,109.3 L 1033.3,109.3 L 1033.3,50.7 L 1073,50.7 C 1077.2,50.7 1080.8,51.1 1083.8,52 C 1086.8,52.9 1089.2,54.1 1091.1,55.8 C 1092.9,57.4 1094.3,59.3 1095.1,61.6 C 1096,63.9 1096.4,66.5 1096.4,69.3 C 1096.4,71.8 1096,73.9 1095.3,75.8 C 1094.6,77.6 1093.7,79.2 1092.5,80.5 C 1091.3,81.9 1090,83 1088.4,83.9 C 1086.8,84.8 1085.2,85.5 1083.5,86.1 L 1102.6,109.3 L 1084.1,109.3 L 1066.4,87.7 L 1049.1,87.7 Z M 1049.1,109.3 M 1105.6,109.3 L 1105.6,50.7 L 1165,50.7 L 1165,63.2 L 1121.9,63.2 L 1121.9,72.9 L 1162.7,72.9 L 1162.7,85.4 L 1121.9,85.4 L 1121.9,96.8 L 1165.6,96.8 L 1165.6,109.3 Z M 1105.6,109.3 M 80,80 C 80,80 55.5,109.5 80,160 C 104.5,109.5 80,80 80,80 M 23.4,23.4 C 23.4,23.4 27,61.6 80,80 C 61.6,27 23.4,23.4 23.4,23.4"/></svg>
+    <div class="logo">
+      <img alt="Reina Madre, clínicas de la mujer" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNzMgMjAwIj48cGF0aCBmaWxsPSIjOEQ1RkEzIiBkPSJNIDEzMC44LDQwLjYgTCAxNTAuOCw0MC42IEMgMTU2LjMsNDAuNiAxNjAuNiw0Mi4xIDE2My41LDQ1IEMgMTY2LDQ3LjQgMTY3LjMsNTAuOCAxNjcuMyw1NC45IEwgMTY3LjMsNTUuMSBDIDE2Ny4zLDYyLjEgMTYzLjUsNjYuNSAxNTgsNjguNiBMIDE2OC43LDg0LjIgTCAxNTcuNSw4NC4yIEwgMTQ4LjEsNzAuMyBMIDE0Ny45LDcwLjMgTCAxNDAuNSw3MC4zIEwgMTQwLjYsODQuMyBMIDEzMSw4NC4zIFogTSAxNTAuMiw2MS44IEMgMTU0LjksNjEuOCAxNTcuNiw1OS4zIDE1Ny42LDU1LjYgTCAxNTcuNiw1NS41IEMgMTU3LjYsNTEuMyAxNTQuNyw0OS4yIDE1MCw0OS4yIEwgMTQwLjUsNDkuMyBMIDE0MC41LDYxLjggWiBNIDE1MC4yLDYxLjggTSAxODIuMiw0MC41IEwgMjE1LjEsNDAuNCBMIDIxNS4xLDQ4LjkgTCAxOTEuNyw0OSBMIDE5MS44LDU3LjggTCAyMTIuNCw1Ny44IEwgMjEyLjQsNjYuMyBMIDE5MS44LDY2LjQgTCAxOTEuOCw3NS42IEwgMjE1LjUsNzUuNSBMIDIxNS42LDg0IEwgMTgyLjMsODQuMSBaIE0gMTgyLjIsNDAuNSBNIDIzMC42LDQwLjMgTCAyNDAuMyw0MC4zIEwgMjQwLjQsODMuOSBMIDIzMC44LDg0IFogTSAyMzAuNiw0MC4zIE0gMjU3LjQsNDAuMiBMIDI2Ni4zLDQwLjIgTCAyODYuOCw2NyBMIDI4Ni43LDQwLjEgTCAyOTYuMiw0MC4xIEwgMjk2LjQsODMuOCBMIDI4OC4yLDgzLjggTCAyNjcsNTYuMSBMIDI2Nyw4My45IEwgMjU3LjYsODMuOSBaIE0gMjU3LjQsNDAuMiBNIDMyNy45LDM5LjcgTCAzMzYuOCwzOS42IEwgMzU1LjcsODMuNiBMIDM0NS42LDgzLjYgTCAzNDEuNiw3My44IEwgMzIzLjEsNzMuOSBMIDMxOS4xLDgzLjcgTCAzMDkuNCw4My43IFogTSAzMzguMSw2NS4zIEwgMzMyLjMsNTEuMiBMIDMyNi41LDY1LjQgWiBNIDMzOC4xLDY1LjMgTSAzNjMuMywzNS41IEMgMzYzLjIsMzQuMiAzNjMuMSwzMi41IDM2My4xLDMxLjMgTCAzNjMuMSwzMS4zIEMgMzYyLjcsMzIuNCAzNjIuMywzMy43IDM2MS44LDM1IEwgMzYwLjEsMzkuOCBMIDM1OS4yLDM5LjggTCAzNTcuNSwzNS4xIEMgMzU3LjEsMzMuNyAzNTYuNywzMi41IDM1Ni40LDMxLjMgTCAzNTYuNCwzMS4zIEMgMzU2LjMsMzIuNSAzNTYuMywzNC4yIDM1Ni4yLDM1LjcgTCAzNTUuOSwzOS45IEwgMzU0LjcsMzkuOSBMIDM1NS40LDMwIEwgMzU3LDMwIEwgMzU4LjcsMzQuOCBDIDM1OS4xLDM2IDM1OS40LDM3LjEgMzU5LjcsMzguMSBMIDM1OS43LDM4LjEgQyAzNjAsMzcuMSAzNjAuMywzNiAzNjAuOCwzNC44IEwgMzYyLjUsMzAgTCAzNjQuMSwzMCBMIDM2NC44LDM5LjkgTCAzNjMuNSwzOS45IFogTSAzNjMuMywzNS41IE0gMzY2LjcsMzAuMSBDIDM2Ny40LDMwIDM2OC4zLDI5LjkgMzY5LjEsMjkuOSBDIDM3MC41LDI5LjkgMzcxLjQsMzAuMiAzNzIsMzAuNyBDIDM3Mi41LDMxLjEgMzcyLjgsMzEuOCAzNzIuOCwzMi42IEMgMzcyLjgsMzMuOSAzNzIsMzQuNyAzNzAuOSwzNS4xIEwgMzcwLjksMzUuMSBDIDM3MS43LDM1LjQgMzcyLjEsMzYuMSAzNzIuNCwzNy4xIEMgMzcyLjcsMzguNSAzNzIuOSwzOS40IDM3My4xLDM5LjggTCAzNzEuOCwzOS44IEMgMzcxLjcsMzkuNiAzNzEuNSwzOC43IDM3MS4yLDM3LjUgQyAzNzAuOSwzNi4xIDM3MC4zLDM1LjYgMzY5LjIsMzUuNiBMIDM2OCwzNS42IEwgMzY4LDM5LjggTCAzNjYuNywzOS44IFogTSAzNjgsMzQuNiBMIDM2OS4zLDM0LjYgQyAzNzAuNiwzNC42IDM3MS41LDMzLjkgMzcxLjUsMzIuNyBDIDM3MS41LDMxLjUgMzcwLjYsMzAuOSAzNjkuMiwzMC45IEMgMzY4LjYsMzAuOSAzNjguMiwzMSAzNjgsMzEgWiBNIDM2OCwzNC42IE0gOTEuMiwxMTEuNyBMIDkwLjksMTExLjEgTCA5MS4xLDExMC42IEMgOTEuMywxMTAuMiA5MS40LDEwOS44IDkxLjQsMTA5LjQgTCA5MS4yLDcyLjggQyA5MS4yLDYxLjQgODcuMiw1MC43IDc5LjksNDIuNSBDIDcyLjMsMzQgNjIuMSwyOS4zIDUxLjEsMjkuMyBMIDUwLjksMjkuMyBDIDM5LjksMjkuNCAyOC44LDM0LjIgMjAuNSw0Mi41IEMgMTIuMiw1MC45IDcuNSw2MiA3LjUsNzMuMSBMIDcuNywxMjUuOSBMIDcuNywxMjYuMiBMIDcuNiwxMjYuNCBDIDIuOSwxMzcuOCAwLjQsMTQ1LjggMC4xLDE1MCBMIDUuM0UtMDUsMTUxIEMgLTAsMTU4LjQgMy41LDE2Ni4xIDkuOSwxNzIuOCBDIDE5LjUsMTgyLjggMzMuOCwxODkuMyA0Ni4yLDE4OS4zIEwgNDYuMywxODkuMyBDIDU5LDE4OS4zIDc0LjksMTgwLjggODQuOSwxNjguNyBDIDkxLjMsMTYxLjEgOTQuMSwxNTMuMiA5Mi44LDE0Ni40IEwgOTIuOCwxNDYuMyBDIDkxLjcsMTQxLjUgODYuNiwxMzIuNSA3NS4xLDEzMi41IEwgNzUsMTMyLjUgQyA2NC40LDEzMi41IDU5LjYsMTQwIDU4LDE0My4zIEwgNTcuNiwxNDQgTCA1Ni44LDE0NCBDIDQ1LjMsMTQ0LjEgMzAuOSwxNTAuNSAyNS4yLDE2OC4xIEMgMjQuOSwxNjguOCAyNSwxNjkuNiAyNS4zLDE3MC4zIEMgMjUuNywxNzEgMjYuMywxNzEuNSAyNywxNzEuNyBDIDI3LjMsMTcxLjggMjcuNiwxNzEuOSAyNy45LDE3MS45IEMgMjkuMiwxNzEuOSAzMC4zLDE3MS4xIDMwLjcsMTY5LjkgQyAzNi44LDE1MS4zIDUyLjgsMTQ5LjggNTcuNSwxNDkuOCBDIDU4LjUsMTQ5LjggNTkuMSwxNDkuOSA1OS4zLDE0OS45IEwgNjEuOCwxNTAuMSBMIDYyLjQsMTQ3LjcgQyA2Mi41LDE0Ny40IDY1LjEsMTM4LjMgNzUsMTM4LjMgTCA3NS4xLDEzOC4zIEMgODQuNSwxMzguMyA4Ni45LDE0Ni41IDg3LjEsMTQ3LjUgTCA4Ny4xLDE0Ny41IEwgODcuMSwxNDcuNiBDIDg4LDE1Mi42IDg1LjYsMTU4LjggODAuNSwxNjUgQyA3MS43LDE3NS41IDU3LDE4My41IDQ2LjMsMTgzLjUgTCA0Ni4yLDE4My41IEMgMzUuNCwxODMuNSAyMi41LDE3Ny42IDE0LjIsMTY4LjggQyA4LjcsMTYzLjEgNS43LDE1Ni43IDUuOCwxNTAuOCBMIDUuOCwxNDkuNiBMIDYsMTQ5LjYgQyA2LjQsMTQ2IDguNywxMzkuMiAxMi43LDEyOS4zIEwgMTIuOCwxMjkuMSBMIDEyLjksMTI5IEMgMTMuMiwxMjguNiAxMy40LDEyOC4xIDEzLjUsMTI3LjYgTCAxMy41LDEyNy40IEwgMTMuNiwxMjcuMyBDIDE4LjYsMTE1LjEgMjQuOSwxMDEuNCAyOS4yLDkyLjcgTCAyOS41LDkyLjEgTCAyOS41LDkxLjQgQyAyOS41LDgyLjMgMzQuMyw4MC4yIDQ0LjMsNzYuNiBDIDUyLDc0IDYwLjYsNzAuOSA2OC4zLDYyLjggTCA2OS44LDYxLjIgTCA3MC41LDYzLjMgQyA3MS44LDY3LjcgNzIuNCw3Mi4yIDcyLjQsNzYuNCBDIDcyLjQsNzcuMiA3Mi43LDc3LjkgNzMuMyw3OC41IEMgNzMuOCw3OSA3NC42LDc5LjMgNzUuMyw3OS4zIEMgNzYuOSw3OS4zIDc4LjIsNzggNzguMiw3Ni40IEMgNzguMyw2NC40IDczLjcsNTUuMSA3My4xLDU0LjEgTCA3MC45LDQ5LjkgTCA2OC4yLDUzLjggQyA2MC42LDY0LjcgNTEsNjguMSA0Mi40LDcxLjEgQyAzMyw3NC41IDI0LjEsNzcuNiAyMy43LDkwLjUgTCAyMy43LDkwLjcgTCAyMy42LDkxIEMgMjIuMSw5NCAxOS4yLDEwMC4xIDE1LjksMTA3LjMgTCAxMy41LDExMi42IEwgMTMuNCwxMDYuOCBMIDEzLjMsNzMgQyAxMy4zLDYzLjYgMTcuNCw1NCAyNC43LDQ2LjcgQyAzMiwzOS40IDQxLjUsMzUuMiA1MSwzNS4yIEwgNTEuMSwzNS4yIEMgNjkuOSwzNS4yIDg1LjQsNTIgODUuNCw3Mi44IEwgODUuNSw5Ny41IEwgODUuNSwxMDIgTCA4My4xLDk4LjEgTCA4Mi4yLDk2LjYgTCA4MS42LDk1LjYgQyA4MC40LDkzLjcgNzkuMiw5MS44IDc3LjksODkuOCBMIDc0LjMsODQgTCA3Miw4OC41IEMgNjcuNyw5Ni45IDYzLjEsMTAxIDU2LjMsMTAyLjIgQyA1NS42LDEwMi4zIDU0LjcsMTAyLjQgNTMuOSwxMDIuNCBDIDQ3LjksMTAyLjQgNDAsOTkuMyAzNi40LDk3LjEgQyAzNiw5Ni45IDM1LjQsOTYuNyAzNC45LDk2LjcgQyAzMy45LDk2LjcgMzIuOSw5Ny4zIDMyLjQsOTguMSBDIDMxLjYsOTkuNSAzMiwxMDEuMyAzMy40LDEwMi4xIEMgMzYsMTAzLjcgNDUuNCwxMDguMiA1My45LDEwOC4yIEMgNTUuMSwxMDguMiA1Ni4zLDEwOC4xIDU3LjMsMTA3LjkgQyA2NCwxMDYuOCA2OS4yLDEwMy4zIDczLjYsOTcuMiBMIDc0LjcsOTUuNiBMIDc1LjcsOTcuMiBDIDc2LjIsOTguMSA3Ni44LDk4LjkgNzcuMyw5OS43IEwgNzcuMyw5OS44IEMgODUuNiwxMTMuMSA5My41LDEyNS42IDk3LjcsMTQ3LjUgQyA5OSwxNTQuMyA5NS42LDE2My4yIDg4LjQsMTcxLjkgQyA3Ny44LDE4NC44IDYxLjgsMTk0LjEgNTAuMywxOTQuMiBMIDUwLjIsMTk0LjIgQyA0OS45LDE5NC4yIDQ5LjUsMTk0LjIgNDksMTk0LjIgQyA0Ny4xLDE5NC4yIDQwLjYsMTk0LjEgMzYuMiwxOTIuNiBDIDM1LjksMTkyLjUgMzUuNiwxOTIuNCAzNS4zLDE5Mi40IEMgMzQsMTkyLjQgMzIuOSwxOTMuMiAzMi41LDE5NC40IEMgMzIsMTk1LjkgMzIuOCwxOTcuNiAzNC4zLDE5OC4xIEMgMzkuNCwxOTkuOCA0Ni4zLDIwMCA0OS4xLDIwMCBMIDQ5LjMsMjAwIEMgNDkuOCwyMDAgNTAuMSwyMDAgNTAuMywyMDAgQyA2My42LDE5OS45IDgxLjEsMTg5LjkgOTIuOSwxNzUuNiBDIDEwMS4zLDE2NS40IDEwNSwxNTUgMTAzLjQsMTQ2LjQgQyAxMDAuOSwxMzMuNSA5Ny4xLDEyMi44IDkxLjIsMTExLjciLz48cGF0aCBmaWxsPSIjQjNCM0RBIiBkPSJNIDEzMC44LDkyLjEgTCAxNDAuOSw5Mi4xIEwgMTUyLjEsMTEwIEwgMTYzLjIsOTIgTCAxNzMuMyw5MiBMIDE3My41LDEzNC41IEwgMTY0LjIsMTM0LjUgTCAxNjQuMSwxMDYuOCBMIDE1Mi4yLDEyNSBMIDE1MS45LDEyNSBMIDE0MC4xLDEwNyBMIDE0MC4xLDEzNC42IEwgMTMxLDEzNC42IFogTSAxMzAuOCw5Mi4xIE0gMTk4LjEsOTEuNiBMIDIwNi43LDkxLjYgTCAyMjUsMTM0LjMgTCAyMTUuMywxMzQuMyBMIDIxMS4zLDEyNC44IEwgMTkzLjQsMTI0LjkgTCAxODkuNSwxMzQuNCBMIDE4MCwxMzQuNSBaIE0gMjA4LDExNi42IEwgMjAyLjMsMTAyLjggTCAxOTYuNywxMTYuNiBaIE0gMjA4LDExNi42IE0gMjMxLjQsOTEuOCBMIDI0OCw5MS43IEMgMjYxLjMsOTEuNyAyNzAuNiwxMDAuOCAyNzAuNiwxMTIuOCBMIDI3MC42LDExMi45IEMgMjcwLjcsMTI0LjkgMjYxLjUsMTM0LjIgMjQ4LjEsMTM0LjIgTCAyMzEuNiwxMzQuMyBaIE0gMjQ4LjEsMTI1LjggQyAyNTUuOCwxMjUuOCAyNjAuOSwxMjAuNiAyNjAuOSwxMTMuMSBMIDI2MC45LDExMi45IEMgMjYwLjgsMTA1LjQgMjU1LjcsMTAwLjIgMjQ4LDEwMC4yIEwgMjQwLjgsMTAwLjIgTCAyNDAuOSwxMjUuOCBaIE0gMjQ4LjEsMTI1LjggTSAyNzguOSw5MS42IEwgMjk4LjMsOTEuNiBDIDMwMy43LDkxLjYgMzA3LjksOTMuMSAzMTAuNyw5NS44IEMgMzEzLjEsOTguMiAzMTQuMywxMDEuNSAzMTQuNCwxMDUuNSBMIDMxNC40LDEwNS43IEMgMzE0LjQsMTEyLjUgMzEwLjcsMTE2LjggMzA1LjMsMTE4LjkgTCAzMTUuNywxMzQgTCAzMDQuOCwxMzQgTCAyOTUuNywxMjAuNSBMIDI5NS41LDEyMC41IEwgMjg4LjMsMTIwLjUgTCAyODguNCwxMzQuMSBMIDI3OSwxMzQuMSBaIE0gMjk3LjgsMTEyLjIgQyAzMDIuMywxMTIuMiAzMDQuOSwxMDkuOCAzMDQuOSwxMDYuMiBMIDMwNC45LDEwNi4xIEMgMzA0LjksMTAyLjEgMzAyLjEsMTAwIDI5Ny41LDEwMCBMIDI4OC4yLDEwMCBMIDI4OC4zLDExMi4yIFogTSAyOTcuOCwxMTIuMiBNIDMyMi43LDkxLjUgTCAzNTQuOCw5MS40IEwgMzU0LjgsOTkuNyBMIDMzMi4xLDk5LjggTCAzMzIuMSwxMDguNCBMIDM1Mi4xLDEwOC4zIEwgMzUyLjEsMTE2LjYgTCAzMzIuMSwxMTYuNyBMIDMzMi4yLDEyNS42IEwgMzU1LjIsMTI1LjUgTCAzNTUuMiwxMzMuOSBMIDMyMi45LDEzNCBaIE0gMzIyLjcsOTEuNSBNIDU1LDEuNSBDIDUyLjcsMyA1MC40LDQuNyA0OC40LDYuNCBDIDQ2LjYsNC41IDQ0LjUsMS43IDQyLjIsMCBDIDQwLjIsMS45IDM4LjQsNSAzNi43LDcuMSBDIDM0LjUsNS42IDMyLjEsNC4zIDI5LjYsMy4xIEMgMjYuNSwxMC45IDI1LjksMjUuMyAyNS45LDI1LjMgQyAzMiwyMS4yIDM5LjMsMTguOCA0NywxOC44IEMgNTEuNCwxOC44IDU1LjYsMTkuNSA1OS41LDIxIEMgNTkuNSwyMSA1OC42LDcuNiA1NSwxLjUiLz48cGF0aCBmaWxsPSIjRTk4MEE3IiBkPSJNIDEzMS4zLDE1NC42IEwgMTMxLjMsMTU0LjYgQyAxMzEuMiwxNTEuMiAxMzMuOCwxNDguNCAxMzcuNCwxNDguNCBDIDEzOS43LDE0OC40IDE0MSwxNDkuMiAxNDIuMSwxNTAuMiBMIDE0MC41LDE1Mi4yIEMgMTM5LjUsMTUxLjMgMTM4LjYsMTUwLjggMTM3LjQsMTUwLjggQyAxMzUuNCwxNTAuOCAxMzQsMTUyLjUgMTM0LDE1NC41IEwgMTM0LDE1NC42IEMgMTM0LDE1Ni42IDEzNS40LDE1OC4zIDEzNy40LDE1OC4zIEMgMTM4LjgsMTU4LjMgMTM5LjYsMTU3LjcgMTQwLjYsMTU2LjkgTCAxNDIuMiwxNTguNiBDIDE0MSwxNTkuOSAxMzkuNywxNjAuNyAxMzcuNCwxNjAuNyBDIDEzMy45LDE2MC43IDEzMS4zLDE1OCAxMzEuMywxNTQuNiBNIDE0NS44LDE0OC44IEwgMTQ4LjUsMTQ4LjggTCAxNDguNSwxNTguNCBMIDE1NC40LDE1OC4zIEwgMTU0LjQsMTYwLjcgTCAxNDUuOSwxNjAuOCBaIE0gMTQ1LjgsMTQ4LjggTSAxNTcuMiwxNDguOCBMIDE1OS44LDE0OC44IEwgMTU5LjksMTYwLjcgTCAxNTcuMiwxNjAuNyBaIE0gMTU5LjMsMTQ0LjggTCAxNjEuNiwxNDUuOCBMIDE1OS40LDE0Ny44IEwgMTU3LjQsMTQ3LjggWiBNIDE1OS4zLDE0NC44IE0gMTYzLjUsMTQ4LjggTCAxNjUuOSwxNDguNyBMIDE3MS41LDE1Ni4xIEwgMTcxLjUsMTQ4LjcgTCAxNzQuMSwxNDguNyBMIDE3NC4xLDE2MC43IEwgMTcxLjksMTYwLjcgTCAxNjYuMSwxNTMuMSBMIDE2Ni4xLDE2MC43IEwgMTYzLjUsMTYwLjcgWiBNIDE2My41LDE0OC44IE0gMTc3LjcsMTQ4LjcgTCAxODAuNCwxNDguNyBMIDE4MC40LDE2MC42IEwgMTc3LjgsMTYwLjcgWiBNIDE3Ny43LDE0OC43IE0gMTgzLjUsMTU0LjYgTCAxODMuNSwxNTQuNiBDIDE4My41LDE1MS4yIDE4Ni4xLDE0OC40IDE4OS43LDE0OC40IEMgMTkyLDE0OC40IDE5My4zLDE0OS4xIDE5NC41LDE1MC4yIEwgMTkyLjgsMTUyLjEgQyAxOTEuOSwxNTEuMyAxOTAuOSwxNTAuOCAxODkuNywxNTAuOCBDIDE4Ny43LDE1MC44IDE4Ni4zLDE1Mi41IDE4Ni4zLDE1NC41IEwgMTg2LjMsMTU0LjYgQyAxODYuMywxNTYuNiAxODcuNywxNTguMyAxODkuOCwxNTguMyBDIDE5MS4xLDE1OC4zIDE5MiwxNTcuOCAxOTIuOSwxNTYuOSBMIDE5NC42LDE1OC42IEMgMTkzLjMsMTU5LjkgMTkyLDE2MC43IDE4OS43LDE2MC43IEMgMTg2LjIsMTYwLjggMTgzLjUsMTU4IDE4My41LDE1NC42IE0gMjAxLjQsMTQ4LjUgTCAyMDMuOCwxNDguNSBMIDIwOSwxNjAuNSBMIDIwNi4yLDE2MC42IEwgMjA1LjEsMTU3LjkgTCAyMDAuMSwxNTcuOSBMIDE5OSwxNjAuNiBMIDE5Ni4zLDE2MC42IFogTSAyMDQuMiwxNTUuNiBMIDIwMi42LDE1MS43IEwgMjAxLDE1NS42IFogTSAyMDQuMiwxNTUuNiBNIDIxMC41LDE1OC44IEwgMjEyLjEsMTU2LjkgQyAyMTMuMSwxNTcuOCAyMTQuMywxNTguNCAyMTUuNiwxNTguNCBDIDIxNi43LDE1OC40IDIxNy4zLDE1Ny45IDIxNy4zLDE1Ny4yIEwgMjE3LjMsMTU3LjIgQyAyMTcuMywxNTYuNSAyMTYuOSwxNTYuMiAyMTQuOSwxNTUuNyBDIDIxMi41LDE1NS4xIDIxMSwxNTQuNCAyMTEsMTUyLjEgTCAyMTEsMTUyIEMgMjExLDE0OS45IDIxMi43LDE0OC40IDIxNS4xLDE0OC40IEMgMjE2LjksMTQ4LjQgMjE4LjQsMTQ4LjkgMjE5LjYsMTQ5LjkgTCAyMTguMiwxNTEuOSBDIDIxNy4yLDE1MS4yIDIxNi4xLDE1MC43IDIxNS4xLDE1MC43IEMgMjE0LjEsMTUwLjcgMjEzLjYsMTUxLjIgMjEzLjYsMTUxLjggTCAyMTMuNiwxNTEuOCBDIDIxMy42LDE1Mi42IDIxNC4xLDE1Mi45IDIxNi4xLDE1My40IEMgMjE4LjYsMTU0IDIxOS45LDE1NC45IDIyMCwxNTYuOSBMIDIyMCwxNTcgQyAyMjAsMTU5LjQgMjE4LjIsMTYwLjcgMjE1LjYsMTYwLjcgQyAyMTMuOCwxNjAuNyAyMTEuOSwxNjAuMSAyMTAuNSwxNTguOCBNIDIyOC43LDE0OC41IEwgMjMzLjMsMTQ4LjUgQyAyMzcuMSwxNDguNSAyMzkuNywxNTEuMSAyMzkuNywxNTQuNCBMIDIzOS43LDE1NC41IEMgMjM5LjcsMTU3LjggMjM3LjEsMTYwLjUgMjMzLjQsMTYwLjUgTCAyMjguNywxNjAuNSBaIE0gMjMzLjQsMTU4LjEgQyAyMzUuNSwxNTguMSAyMzcsMTU2LjYgMjM3LDE1NC41IEwgMjM3LDE1NC41IEMgMjM3LDE1Mi40IDIzNS41LDE1MC45IDIzMy4zLDE1MC45IEwgMjMxLjMsMTUwLjkgTCAyMzEuMywxNTguMSBaIE0gMjMzLjQsMTU4LjEgTSAyNDIuNywxNDguNSBMIDI1MS43LDE0OC41IEwgMjUxLjcsMTUwLjggTCAyNDUuMywxNTAuOCBMIDI0NS4zLDE1My4yIEwgMjUxLDE1My4yIEwgMjUxLDE1NS42IEwgMjQ1LjMsMTU1LjYgTCAyNDUuMywxNTguMSBMIDI1MS44LDE1OC4xIEwgMjUxLjgsMTYwLjQgTCAyNDIuNywxNjAuNCBaIE0gMjQyLjcsMTQ4LjUgTSAyNjAuNiwxNDguNCBMIDI2My4yLDE0OC40IEwgMjYzLjMsMTU4IEwgMjY5LjIsMTU4IEwgMjY5LjIsMTYwLjMgTCAyNjAuNiwxNjAuNCBaIE0gMjYwLjYsMTQ4LjQgTSAyNzUuOSwxNDguMyBMIDI3OC40LDE0OC4zIEwgMjgzLjUsMTYwLjMgTCAyODAuOCwxNjAuMyBMIDI3OS43LDE1Ny42IEwgMjc0LjYsMTU3LjYgTCAyNzMuNSwxNjAuMyBMIDI3MC45LDE2MC4zIFogTSAyNzguNywxNTUuMyBMIDI3Ny4xLDE1MS40IEwgMjc1LjYsMTU1LjMgWiBNIDI3OC43LDE1NS4zIE0gMjkxLjgsMTQ4LjMgTCAyOTQuNiwxNDguMyBMIDI5Ny44LDE1My40IEwgMzAwLjksMTQ4LjMgTCAzMDMuNywxNDguMyBMIDMwMy44LDE2MC4yIEwgMzAxLjIsMTYwLjIgTCAzMDEuMSwxNTIuNCBMIDI5Ny44LDE1Ny42IEwgMjk3LjcsMTU3LjYgTCAyOTQuNCwxNTIuNSBMIDI5NC40LDE2MC4zIEwgMjkxLjgsMTYwLjMgWiBNIDI5MS44LDE0OC4zIE0gMzA3LjEsMTU1LjEgTCAzMDcuMSwxNDguMyBMIDMwOS43LDE0OC4zIEwgMzA5LjcsMTU1IEMgMzA5LjcsMTU3IDMxMC43LDE1OCAzMTIuMywxNTggQyAzMTMuOSwxNTggMzE0LjksMTU3IDMxNC45LDE1NS4xIEwgMzE0LjksMTQ4LjIgTCAzMTcuNSwxNDguMiBMIDMxNy41LDE1NSBDIDMxNy41LDE1OC42IDMxNS41LDE2MC40IDMxMi4zLDE2MC40IEMgMzA5LjEsMTYwLjQgMzA3LjEsMTU4LjYgMzA3LjEsMTU1LjEgTSAzMTkuMywxNTguNiBMIDMyMSwxNTYuNyBDIDMyMS43LDE1Ny41IDMyMi40LDE1Ny45IDMyMy4yLDE1Ny45IEMgMzI0LjIsMTU3LjkgMzI0LjgsMTU3LjMgMzI0LjgsMTU1LjkgTCAzMjQuOCwxNDguMiBMIDMyNy41LDE0OC4yIEwgMzI3LjUsMTU2IEMgMzI3LjUsMTU3LjQgMzI3LjEsMTU4LjUgMzI2LjQsMTU5LjIgQyAzMjUuNiwxNTkuOSAzMjQuNiwxNjAuMyAzMjMuMywxNjAuMyBDIDMyMS40LDE2MC4zIDMyMC4yLDE1OS41IDMxOS4zLDE1OC42IE0gMzMwLjgsMTQ4LjIgTCAzMzkuOCwxNDguMiBMIDMzOS44LDE1MC41IEwgMzMzLjQsMTUwLjUgTCAzMzMuNCwxNTIuOSBMIDMzOS4xLDE1Mi45IEwgMzM5LjEsMTU1LjMgTCAzMzMuNCwxNTUuMyBMIDMzMy41LDE1Ny44IEwgMzM5LjksMTU3LjggTCAzMzkuOSwxNjAuMSBMIDMzMC44LDE2MC4xIFogTSAzMzAuOCwxNDguMiBNIDM0Mi45LDE0OC4yIEwgMzQ4LjQsMTQ4LjEgQyAzNDkuOSwxNDguMSAzNTEuMSwxNDguNSAzNTEuOSwxNDkuMyBDIDM1Mi41LDE1MCAzNTIuOSwxNTAuOSAzNTIuOSwxNTIuMSBMIDM1Mi45LDE1Mi4xIEMgMzUyLjksMTU0IDM1MS45LDE1NS4yIDM1MC4zLDE1NS44IEwgMzUzLjMsMTYwLjEgTCAzNTAuMiwxNjAuMSBMIDM0Ny42LDE1Ni4zIEwgMzQ3LjYsMTU2LjMgTCAzNDUuNiwxNTYuMyBMIDM0NS42LDE2MC4xIEwgMzQzLDE2MC4xIFogTSAzNDguMiwxNTMuOSBDIDM0OS41LDE1My45IDM1MC4yLDE1My4yIDM1MC4yLDE1Mi4yIEwgMzUwLjIsMTUyLjIgQyAzNTAuMiwxNTEuMSAzNDkuNCwxNTAuNSAzNDguMiwxNTAuNSBMIDM0NS42LDE1MC41IEwgMzQ1LjYsMTUzLjkgWiBNIDM0OC4yLDE1My45Ii8+PC9zdmc+">
+      <span class="sep" aria-hidden="true"></span>
+      <img alt="María Linda, médicos expertos en la piel" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MjYgMjAwIj48cGF0aCBmaWxsPSIjN0JDNkJCIiBkPSJNIDIxMywxMTAuNCBDIDIxNS4xLDExMC42IDIxNy4zLDExMC43IDIxOS40LDExMC43IEMgMjQ3LjYsMTEwLjcgMjcxLjYsOTMuMyAyODEuNCw2OC42IEMgMjc5LjMsNjguNCAyNzcuMiw2OC4zIDI3NSw2OC4zIEMgMjQ2LjksNjguMyAyMjIuOCw4NS43IDIxMywxMTAuNCBNIDIxMywxMTAuNCBDIDIxMC45LDExMC42IDIwOC43LDExMC43IDIwNi41LDExMC43IEMgMTc4LjQsMTEwLjcgMTU0LjQsOTMuMyAxNDQuNSw2OC42IEMgMTQ2LjcsNjguNCAxNDguOCw2OC4zIDE1MSw2OC4zIEMgMTc5LjEsNjguMyAyMDMuMiw4NS43IDIxMywxMTAuNCBNIDI2Ni44LDUxLjQgQyAyNjUuMiw1MS4yIDI2My42LDUxLjIgMjYyLjEsNTEuMiBDIDI1Myw1MS4yIDI0NC40LDUzLjggMjM3LjIsNTguNCBDIDIzNS43LDU5LjQgMjM0LjEsNjAuNSAyMzIuNyw2MS42IEMgMjIzLjgsNjguOSAyMTcuNiw3OS41IDIxNS45LDkxLjQgQyAyMTUuOCw5Mi4xIDIxNS44LDkyLjggMjE1LjcsOTMuNSBDIDIyNy43LDc2LjMgMjQ2LjYsNjUuMSAyNjcuOCw2MyBDIDI2Ny44LDYyLjYgMjY3LjksNjIuMSAyNjcuOSw2MS42IEMgMjY3LjksNTguMSAyNjcuNSw1NC43IDI2Ni44LDUxLjQgTSAyMTMuNCw4MC43IEMgMjE2LjksNzAuOCAyMjMuMyw2Mi4zIDIzMS42LDU2LjIgQyAyMjkuOSw0OS41IDIyNi43LDQzLjEgMjIxLjksMzcuNSBDIDIxOS43LDM0LjkgMjE3LjIsMzIuNiAyMTQuNSwzMC41IEMgMjEzLjEsMzEuNCAyMTEuOSwzMi40IDIxMC44LDMzLjQgQyAyMDMuNSwzOS42IDE5OC40LDQ3LjggMTk2LjEsNTYuOCBDIDIwNCw2Mi45IDIxMCw3MS4yIDIxMy40LDgwLjcgTSAyMTEuMiw5NC45IEMgMjExLjIsOTMuOCAyMTEuMSw5Mi42IDIxMC45LDkxLjQgQyAyMDkuMyw3OS44IDIwMy41LDY5LjYgMTk1LDYyLjMgQyAxOTMuNSw2MS4xIDE5Miw2MCAxOTAuNSw1OC45IEMgMTgzLjEsNTQgMTc0LjIsNTEuMiAxNjQuNyw1MS4yIEMgMTYzLjIsNTEuMiAxNjEuNiw1MS4yIDE2MC4xLDUxLjQgQyAxNTkuMyw1NC43IDE1OSw1OC4xIDE1OSw2MS42IEMgMTU5LDYyLjEgMTU5LDYyLjYgMTU5LDYzLjEgQyAxODAuNSw2NS41IDE5OS41LDc3LjIgMjExLjIsOTQuOSBNIDQwMi42LDE0Ny4yIEMgNDAzLjMsMTQ3LjEgNDAzLjcsMTQ2LjkgNDAzLjcsMTQ2LjQgQyA0MDMuNywxNDUuOSA0MDMuMywxNDUuNyA0MDIuNiwxNDUuNyBMIDQwMC45LDE0NS43IEwgNDAwLjksMTQ3LjIgWiBNIDQwMy4yLDE0Ny42IEwgNDA0LjUsMTQ5LjEgTCA0MDMuNywxNDkuMSBMIDQwMi40LDE0Ny43IEwgNDAwLjksMTQ3LjcgTCA0MDAuOSwxNDkuMSBMIDQwMC4zLDE0OS4xIEwgNDAwLjIsMTQ1LjIgTCA0MDIuOCwxNDUuMiBDIDQwMy43LDE0NS4yIDQwNC40LDE0NS42IDQwNC40LDE0Ni40IEMgNDA0LjQsMTQ3LjEgNDAzLjksMTQ3LjUgNDAzLjIsMTQ3LjYgTSA0MDUuOCwxNDcuMiBDIDQwNS44LDE0NS4xIDQwNC4zLDE0My44IDQwMi4xLDE0My44IEMgNDAwLDE0My45IDM5OC41LDE0NS4xIDM5OC41LDE0Ny4yIEMgMzk4LjUsMTQ5LjMgNDAwLDE1MC42IDQwMi4yLDE1MC42IEMgNDA0LjQsMTUwLjUgNDA1LjgsMTQ5LjIgNDA1LjgsMTQ3LjIgTSA0MDYuMywxNDcuMiBDIDQwNi4zLDE0OS41IDQwNC42LDE1MSA0MDIuMiwxNTEgQyAzOTkuOCwxNTEgMzk4LjEsMTQ5LjUgMzk4LDE0Ny4yIEMgMzk4LDE0NC45IDM5OS44LDE0My40IDQwMi4xLDE0My40IEMgNDA0LjUsMTQzLjQgNDA2LjMsMTQ0LjkgNDA2LjMsMTQ3LjIgTSAyNTIuMywxNjggTCAyNTIuMywxNzAuOSBMIDIyOS4zLDE3MS4xIEwgMjI5LjIsMTQ1LjEgTCAyMzIuMywxNDUuMSBMIDIzMi40LDE2OC4xIFogTSAyNTIuMywxNjggTSAyNjQuMywxNDUgTCAyNjcuNCwxNDQuOSBMIDI2Ny42LDE3MC45IEwgMjY0LjQsMTcwLjkgWiBNIDI2NC4zLDE0NSBNIDMxMS44LDE0NC43IEwgMzEyLDE3MC43IEwgMzA5LjIsMTcwLjcgTCAyODcuMywxNDguOCBMIDI4Ny40LDE3MC44IEwgMjg0LjQsMTcwLjggTCAyODQuMywxNDQuOSBMIDI4Ny42LDE0NC45IEwgMzA4LjksMTY2LjEgTCAzMDguOCwxNDQuNyBaIE0gMzExLjgsMTQ0LjcgTSAzNTMuNywxNTcuNSBDIDM1My43LDE1MC45IDM0OC40LDE0Ny40IDM0MSwxNDcuNSBMIDMzMS44LDE0Ny41IEwgMzMxLjksMTY3LjcgTCAzNDEuMiwxNjcuNiBDIDM0OC41LDE2Ny42IDM1My43LDE2NC4xIDM1My43LDE1Ny41IE0gMzU2LjksMTU3LjUgQyAzNTYuOSwxNjUuNCAzNTAuOSwxNzAuNSAzNDEuNCwxNzAuNSBMIDMyOC44LDE3MC42IEwgMzI4LjcsMTQ0LjcgTCAzNDEuMiwxNDQuNiBDIDM1MC43LDE0NC41IDM1Ni44LDE0OS41IDM1Ni45LDE1Ny41IE0gMzkyLjEsMTYwLjUgTCAzODQuOCwxNDcuMyBMIDM3Ny42LDE2MC42IFogTSAzOTMuNiwxNjMuMyBMIDM3Ni4xLDE2My40IEwgMzcyLjQsMTcwLjQgTCAzNjguOSwxNzAuNCBMIDM4MywxNDQuNCBMIDM4Ni41LDE0NC40IEwgNDAwLjksMTcwLjIgTCAzOTcuNCwxNzAuMyBaIE0gMzkzLjYsMTYzLjMiLz48cGF0aCBmaWxsPSIjN0I3RDdFIiBkPSJNIDUyLjQsMTQ0LjcgTCA1Mi40LDE3MC42IEwgNDkuMywxNzAuNiBMIDQ5LjMsMTQ5LjEgTCAzNi4xLDE2NSBMIDM1LjksMTY1IEwgMjIuNywxNDkuMSBMIDIyLjcsMTcwLjYgTCAxOS43LDE3MC42IEwgMTkuNywxNDQuNyBMIDIzLjEsMTQ0LjcgTCAzNi4xLDE2MC42IEwgNDkuMSwxNDQuNyBaIE0gNTIuNCwxNDQuNyBNIDg4LDE2MC44IEwgODAuOCwxNDcuNiBMIDczLjYsMTYwLjggWiBNIDg5LjYsMTYzLjcgTCA3Mi4xLDE2My43IEwgNjguMywxNzAuNiBMIDY0LjksMTcwLjYgTCA3OS4xLDE0NC43IEwgODIuNiwxNDQuNyBMIDk2LjksMTcwLjYgTCA5My4zLDE3MC42IFogTSA4OS42LDE2My43IE0gMTI3LjgsMTU3LjggQyAxMzIsMTU3LjggMTM0LjcsMTU2LjIgMTM0LjcsMTUyLjcgQyAxMzQuNywxNDkuMiAxMzIsMTQ3LjYgMTI3LjgsMTQ3LjYgTCAxMTMuNywxNDcuNiBMIDExMy43LDE1Ny44IFogTSAxMzQuNywxNzAuNiBMIDEyNi4xLDE2MC43IEwgMTEzLjcsMTYwLjcgTCAxMTMuNywxNzAuNiBMIDExMC42LDE3MC42IEwgMTEwLjYsMTQ0LjcgTCAxMjgsMTQ0LjcgQyAxMzMuOCwxNDQuNyAxMzcuOSwxNDcuNiAxMzcuOSwxNTIuNyBDIDEzNy45LDE1Ny4yIDEzNC43LDE2MCAxMjkuOSwxNjAuNiBMIDEzOC43LDE3MC42IFogTSAxMzQuNywxNzAuNiBNIDE1NC42LDE0NC43IEwgMTU3LjcsMTQ0LjcgTCAxNTcuNywxNzAuNiBMIDE1NC42LDE3MC42IFogTSAxNTQuNiwxNDQuNyBNIDE5Mi44LDE2MC44IEwgMTg1LjYsMTQ3LjYgTCAxNzguNCwxNjAuOCBaIE0gMTk0LjMsMTYzLjcgTCAxNzYuOSwxNjMuNyBMIDE3My4xLDE3MC42IEwgMTY5LjYsMTcwLjYgTCAxODMuOSwxNDQuNyBMIDE4Ny40LDE0NC43IEwgMjAxLjYsMTcwLjYgTCAxOTguMSwxNzAuNiBaIE0gMTk0LjMsMTYzLjcgTSAxNy43LDE5My4yIEMgMTcuNywxODkuMyAyMC43LDE4Ni40IDI0LjgsMTg2LjQgQyAyNi44LDE4Ni40IDI4LjYsMTg3LjEgMjkuOCwxODguNSBMIDI4LjYsMTg5LjcgQyAyNy42LDE4OC42IDI2LjMsMTg4LjEgMjQuOCwxODguMSBDIDIxLjgsMTg4LjEgMTkuNiwxOTAuMyAxOS42LDE5My4yIEMgMTkuNiwxOTYuMSAyMS44LDE5OC4zIDI0LjgsMTk4LjMgQyAyNi4zLDE5OC4zIDI3LjYsMTk3LjggMjguNiwxOTYuNyBMIDI5LjgsMTk3LjkgQyAyOC42LDE5OS4zIDI2LjgsMjAwIDI0LjcsMjAwIEMgMjAuNywyMDAgMTcuNywxOTcuMSAxNy43LDE5My4yIE0gMzYuMywxODYuNiBMIDM4LjIsMTg2LjYgTCAzOC4yLDE5OC4yIEwgNDUuNCwxOTguMiBMIDQ1LjQsMTk5LjggTCAzNi4zLDE5OS44IFogTSAzNi4zLDE4Ni42IE0gNTEuNCwxODYuNiBMIDUzLjMsMTg2LjYgTCA1My4zLDE5OS44IEwgNTEuNCwxOTkuOCBaIE0gNTMuNSwxODMgTCA1NS44LDE4MyBMIDUyLjYsMTg1LjUgTCA1MC45LDE4NS41IFogTSA1My41LDE4MyBNIDcyLjUsMTg2LjYgTCA3Mi41LDE5OS44IEwgNzAuOSwxOTkuOCBMIDYzLDE4OS45IEwgNjMsMTk5LjggTCA2MS4xLDE5OS44IEwgNjEuMSwxODYuNiBMIDYyLjYsMTg2LjYgTCA3MC42LDE5Ni41IEwgNzAuNiwxODYuNiBaIE0gNzIuNSwxODYuNiBNIDgwLjMsMTg2LjYgTCA4Mi4yLDE4Ni42IEwgODIuMiwxOTkuOCBMIDgwLjMsMTk5LjggWiBNIDgwLjMsMTg2LjYgTSA4OC45LDE5My4yIEMgODguOSwxODkuMyA5MS45LDE4Ni40IDk1LjksMTg2LjQgQyA5OCwxODYuNCA5OS44LDE4Ny4xIDEwMSwxODguNSBMIDk5LjcsMTg5LjcgQyA5OC43LDE4OC42IDk3LjUsMTg4LjEgOTYsMTg4LjEgQyA5MywxODguMSA5MC44LDE5MC4zIDkwLjgsMTkzLjIgQyA5MC44LDE5Ni4xIDkzLDE5OC4zIDk2LDE5OC4zIEMgOTcuNSwxOTguMyA5OC43LDE5Ny44IDk5LjcsMTk2LjcgTCAxMDEsMTk3LjkgQyA5OS44LDE5OS4zIDk4LDIwMCA5NS45LDIwMCBDIDkxLjksMjAwIDg4LjksMTk3LjEgODguOSwxOTMuMiBNIDExNSwxOTUgTCAxMTIuMSwxODguNSBMIDEwOS4yLDE5NSBaIE0gMTE1LjYsMTk2LjUgTCAxMDguNiwxOTYuNSBMIDEwNy4xLDE5OS44IEwgMTA1LjIsMTk5LjggTCAxMTEuMiwxODYuNiBMIDExMywxODYuNiBMIDExOS4xLDE5OS44IEwgMTE3LjEsMTk5LjggWiBNIDExNS42LDE5Ni41IE0gMTM5LjIsMTk4LjIgQyAxNDIuNSwxOTguMiAxNDQuNiwxOTYuMiAxNDQuNiwxOTMuMiBDIDE0NC42LDE5MC4yIDE0Mi41LDE4OC4yIDEzOS4yLDE4OC4yIEwgMTM1LjYsMTg4LjIgTCAxMzUuNiwxOTguMiBaIE0gMTMzLjgsMTg2LjYgTCAxMzkuNCwxODYuNiBDIDE0My42LDE4Ni42IDE0Ni41LDE4OS4zIDE0Ni41LDE5My4yIEMgMTQ2LjUsMTk3LjIgMTQzLjYsMTk5LjggMTM5LjQsMTk5LjggTCAxMzMuOCwxOTkuOCBaIE0gMTMzLjgsMTg2LjYgTSAxNjIuOSwxOTguMiBMIDE2Mi45LDE5OS44IEwgMTUzLjIsMTk5LjggTCAxNTMuMiwxODYuNiBMIDE2Mi42LDE4Ni42IEwgMTYyLjYsMTg4LjIgTCAxNTUuMSwxODguMiBMIDE1NS4xLDE5Mi4zIEwgMTYxLjgsMTkyLjMgTCAxNjEuOCwxOTMuOSBMIDE1NS4xLDE5My45IEwgMTU1LjEsMTk4LjIgWiBNIDE2Mi45LDE5OC4yIE0gMTg2LjQsMTk1IEwgMTgzLjYsMTg4LjUgTCAxODAuNywxOTUgWiBNIDE4Ny4xLDE5Ni41IEwgMTgwLjEsMTk2LjUgTCAxNzguNiwxOTkuOCBMIDE3Ni42LDE5OS44IEwgMTgyLjcsMTg2LjYgTCAxODQuNSwxODYuNiBMIDE5MC42LDE5OS44IEwgMTg4LjYsMTk5LjggWiBNIDE4Ny4xLDE5Ni41IE0gMTk1LjEsMTkzLjIgQyAxOTUuMSwxODkuMyAxOTguMSwxODYuNCAyMDIuMSwxODYuNCBDIDIwNC4yLDE4Ni40IDIwNS45LDE4Ny4xIDIwNy4yLDE4OC41IEwgMjA1LjksMTg5LjcgQyAyMDQuOSwxODguNiAyMDMuNywxODguMSAyMDIuMiwxODguMSBDIDE5OS4yLDE4OC4xIDE5NywxOTAuMyAxOTcsMTkzLjIgQyAxOTcsMTk2LjEgMTk5LjIsMTk4LjMgMjAyLjIsMTk4LjMgQyAyMDMuNywxOTguMyAyMDQuOSwxOTcuOCAyMDUuOSwxOTYuNyBMIDIwNy4yLDE5Ny45IEMgMjA1LjksMTk5LjMgMjA0LjIsMjAwIDIwMi4xLDIwMCBDIDE5OC4xLDIwMCAxOTUuMSwxOTcuMSAxOTUuMSwxOTMuMiBNIDIyNS4xLDE4Ni42IEwgMjI1LjEsMTk5LjggTCAyMjMuNSwxOTkuOCBMIDIxNS42LDE4OS45IEwgMjE1LjYsMTk5LjggTCAyMTMuNywxOTkuOCBMIDIxMy43LDE4Ni42IEwgMjE1LjIsMTg2LjYgTCAyMjMuMiwxOTYuNSBMIDIyMy4yLDE4Ni42IFogTSAyMjUuMSwxODYuNiBNIDIzNy45LDE4NS41IEwgMjM2LjIsMTg1LjUgTCAyMzguNywxODMgTCAyNDEuMSwxODMgWiBNIDI0Mi41LDE5OC4yIEwgMjQyLjUsMTk5LjggTCAyMzIuOSwxOTkuOCBMIDIzMi45LDE4Ni42IEwgMjQyLjMsMTg2LjYgTCAyNDIuMywxODguMiBMIDIzNC44LDE4OC4yIEwgMjM0LjgsMTkyLjMgTCAyNDEuNCwxOTIuMyBMIDI0MS40LDE5My45IEwgMjM0LjgsMTkzLjkgTCAyMzQuOCwxOTguMiBaIE0gMjQyLjUsMTk4LjIgTSAyNjMuNCwxOTUuMyBMIDI2My40LDE5OS44IEwgMjYxLjUsMTk5LjggTCAyNjEuNSwxOTUuMiBMIDI1Ni4yLDE4Ni42IEwgMjU4LjMsMTg2LjYgTCAyNjIuNSwxOTMuNiBMIDI2Ni44LDE4Ni42IEwgMjY4LjcsMTg2LjYgWiBNIDI2My40LDE5NS4zIE0gMjk1LjYsMTk5LjggTCAyOTUuNiwxOTAuMiBMIDI5MC44LDE5OC4yIEwgMjg5LjksMTk4LjIgTCAyODUuMSwxOTAuMiBMIDI4NS4xLDE5OS44IEwgMjgzLjMsMTk5LjggTCAyODMuMywxODYuNiBMIDI4NC44LDE4Ni42IEwgMjkwLjQsMTk1LjkgTCAyOTUuOCwxODYuNiBMIDI5Ny40LDE4Ni42IEwgMjk3LjQsMTk5LjggWiBNIDI5NS42LDE5OS44IE0gMzEzLDE5NSBMIDMxMC4xLDE4OC41IEwgMzA3LjMsMTk1IFogTSAzMTMuNywxOTYuNSBMIDMwNi42LDE5Ni41IEwgMzA1LjEsMTk5LjggTCAzMDMuMiwxOTkuOCBMIDMwOS4yLDE4Ni42IEwgMzExLjEsMTg2LjYgTCAzMTcuMSwxOTkuOCBMIDMxNS4xLDE5OS44IFogTSAzMTMuNywxOTYuNSBNIDMzNC4zLDE4Ni42IEwgMzM0LjMsMTk5LjggTCAzMzIuOCwxOTkuOCBMIDMyNC44LDE4OS45IEwgMzI0LjgsMTk5LjggTCAzMjIuOSwxOTkuOCBMIDMyMi45LDE4Ni42IEwgMzI0LjQsMTg2LjYgTCAzMzIuNCwxOTYuNSBMIDMzMi40LDE4Ni42IFogTSAzMzQuMywxODYuNiBNIDM0MSwxOTMuMiBDIDM0MSwxODkuMyAzNDQsMTg2LjQgMzQ4LjEsMTg2LjQgQyAzNTAuMSwxODYuNCAzNTEuOSwxODcuMSAzNTMuMSwxODguNSBMIDM1MS45LDE4OS43IEMgMzUwLjksMTg4LjYgMzQ5LjYsMTg4LjEgMzQ4LjEsMTg4LjEgQyAzNDUuMSwxODguMSAzNDIuOSwxOTAuMyAzNDIuOSwxOTMuMiBDIDM0Mi45LDE5Ni4xIDM0NS4xLDE5OC4zIDM0OC4xLDE5OC4zIEMgMzQ5LjYsMTk4LjMgMzUwLjksMTk3LjggMzUxLjksMTk2LjcgTCAzNTMuMSwxOTcuOSBDIDM1MS45LDE5OS4zIDM1MC4xLDIwMCAzNDgsMjAwIEMgMzQ0LDIwMCAzNDEsMTk3LjEgMzQxLDE5My4yIE0gMzcxLjEsMTg2LjYgTCAzNzEuMSwxOTkuOCBMIDM2OS4xLDE5OS44IEwgMzY5LjEsMTkzLjkgTCAzNjEuNSwxOTMuOSBMIDM2MS41LDE5OS44IEwgMzU5LjYsMTk5LjggTCAzNTkuNiwxODYuNiBMIDM2MS41LDE4Ni42IEwgMzYxLjUsMTkyLjMgTCAzNjkuMSwxOTIuMyBMIDM2OS4xLDE4Ni42IFogTSAzNzEuMSwxODYuNiBNIDM4Ni42LDE5NSBMIDM4My44LDE4OC41IEwgMzgwLjksMTk1IFogTSAzODcuMywxOTYuNSBMIDM4MC4yLDE5Ni41IEwgMzc4LjgsMTk5LjggTCAzNzYuOCwxOTkuOCBMIDM4Mi44LDE4Ni42IEwgMzg0LjcsMTg2LjYgTCAzOTAuOCwxOTkuOCBMIDM4OC44LDE5OS44IFogTSAzODcuMywxOTYuNSBNIDM5NS4zLDE5OC4zIEwgMzk2LDE5Ni44IEMgMzk3LDE5Ny43IDM5OC43LDE5OC40IDQwMC40LDE5OC40IEMgNDAyLjcsMTk4LjQgNDAzLjcsMTk3LjUgNDAzLjcsMTk2LjMgQyA0MDMuNywxOTMuMSAzOTUuNiwxOTUuMSAzOTUuNiwxOTAuMiBDIDM5NS42LDE4OC4xIDM5Ny4yLDE4Ni40IDQwMC43LDE4Ni40IEMgNDAyLjMsMTg2LjQgNDAzLjksMTg2LjggNDA1LDE4Ny42IEwgNDA0LjQsMTg5LjEgQyA0MDMuMiwxODguNCA0MDEuOSwxODggNDAwLjcsMTg4IEMgMzk4LjUsMTg4IDM5Ny41LDE4OSAzOTcuNSwxOTAuMSBDIDM5Ny41LDE5My40IDQwNS41LDE5MS4zIDQwNS41LDE5Ni4yIEMgNDA1LjUsMTk4LjMgNDAzLjksMjAwIDQwMC40LDIwMCBDIDM5OC40LDIwMCAzOTYuNCwxOTkuMyAzOTUuMywxOTguMyIvPjxwYXRoIGZpbGw9Ik5vbmUiIGQ9Ik0gMCwwIEwgNDI2LjUsMCIvPjwvc3ZnPg==">
+    </div>
+  </header>
+
+  <section class="hero" aria-labelledby="h-title">
+    <div class="intro">
+      <span class="kick"><i aria-hidden="true"></i><span id="kick">Programa de Referidos al Doble</span></span>
+      <h1 id="h-title">Tu red profesional fortalece a <em>Reina Madre</em> y <em class="aq">María Linda</em></h1>
+      <p id="h-lead"></p>
+      <div class="cta">
+        <button class="btn pri" type="button" data-go="vacantes">Ver vacantes</button>
+        <button class="btn sec" type="button" data-go="referir">Cómo referir</button>
+      </div>
+    </div>
+    <div class="bono" aria-live="polite">
+      <div class="lbl">Bono por cada médico referido que se integre</div>
+      <div class="money"><span id="b-amt">$20,000</span><small>por cada médico referido que se integre a Reina Madre o María Linda</small></div>
+      <div class="pays">
+        <div class="pay"><b id="p1">$10,000</b><span>Al ingreso de tu médico referido</span></div>
+        <div class="pay"><b id="p2">$10,000</b><span>Cuando cumpla 6 meses con nosotros</span></div>
+      </div>
+      <div class="clock" id="clock">
+        <div class="row"><span>Vigencia: octubre 2026 – enero 2027</span><b id="c-left"></b></div>
+        <div class="trk"><span class="fill" id="c-fill" style="width:0"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats" aria-label="Resumen de vacantes">
+    <div class="stat"><b data-k="vac">0</b><span>Vacantes abiertas</span><div class="split"><span class="r" id="s-rm"></span><span class="m" id="s-ml"></span></div></div>
+    <div class="stat"><b data-k="suc">0</b><span>Sucursales con vacantes</span></div>
+    <div class="stat"><b data-k="esp">0</b><span>Especialidades</span></div>
+    <div class="stat"><b data-k="new">0</b><span>Nuevas en los últimos 14 días</span></div>
+  </section>
+
+  <div class="tabwrap">
+    <nav class="tabs" role="tablist" aria-label="Secciones">
+      <span class="ind" aria-hidden="true"></span>
+      <button role="tab" id="t-vacantes" data-t="vacantes" aria-selected="true" aria-controls="v-vacantes">Vacantes</button>
+      <button role="tab" id="t-referir" data-t="referir" aria-selected="false" aria-controls="v-referir">Cómo referir</button>
+      <button role="tab" id="t-requisitos" data-t="requisitos" aria-selected="false" aria-controls="v-requisitos">Requisitos</button>
+      <button role="tab" id="t-beneficios" data-t="beneficios" aria-selected="false" aria-controls="v-beneficios">Lo que ofrecemos</button>
+    </nav>
+  </div>
+
+  <main>
+    <section class="panel" id="v-vacantes" role="tabpanel" aria-labelledby="t-vacantes"></section>
+    <section class="panel" id="v-referir" role="tabpanel" aria-labelledby="t-referir" hidden></section>
+    <section class="panel" id="v-requisitos" role="tabpanel" aria-labelledby="t-requisitos" hidden></section>
+    <section class="panel" id="v-beneficios" role="tabpanel" aria-labelledby="t-beneficios" hidden></section>
+  </main>
+
+  <footer class="foot">
+    <strong>Tu recomendación <em>hace la diferencia.</em></strong>
+    <span id="corte"></span>
+  </footer>
+</div>
+
+<dialog id="dlg" aria-labelledby="dlg-t">
+  <div class="dl">
+    <header>
+      <div><h2 id="dlg-t">Referir a un colega</h2><p id="dlg-s"></p></div>
+      <button class="x" type="button" id="dlg-x" aria-label="Cerrar"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3l10 10M13 3L3 13"/></svg></button>
+    </header>
+    <p class="hint">Completa los datos de tu colega y envía el mensaje a Reclutamiento Médico por WhatsApp, o cópialo para mandarlo por otro medio.</p>
+    <label for="dlg-m" class="hint" style="font-weight:700;color:var(--ink-2)">Mensaje</label>
+    <textarea id="dlg-m"></textarea>
+    <div class="acts">
+      <a class="btn pri" id="wa1" target="_blank" rel="noopener">WhatsApp 56 3054 0614</a>
+      <a class="btn sec" id="wa2" target="_blank" rel="noopener">WhatsApp 55 6871 4289</a>
+      <button class="btn sec" type="button" id="cp">Copiar mensaje</button>
+    </div>
+  </div>
+</dialog>
+<div class="toast" id="toast" role="status"></div>
+
+<script type="application/json" id="data">{"corte":"2026-11-23","vacantes":[{"p":"G y O Colpos","e":"GYO COLPOS","m":"RM","s":"ARAGON","h":"L-V + S Vesp","f":"2026-08-27"},{"p":"G Y O Colpos","e":"GYO COLPOS","m":"RM","s":"ARAGON","h":"L-V + D Vesp","f":"2026-09-03"},{"p":"G y O Colpos","e":"GYO COLPOS","m":"RM","s":"ARAGON","h":"L-V + S Mat","f":"2026-08-27"},{"p":"G Y O Colpos","e":"GYO","m":"RM","s":"CUAUTITLAN","h":"L-V + D Vesp","f":"2026-02-13"},{"p":"Neonato","e":"Neonato","m":"RM","s":"CUAUTITLAN","h":"L-V + FDS Reanimación","f":"2026-08-26"},{"p":"Medico Materno Fetal","e":"MMF","m":"RM","s":"GRAN SUR","h":"L-V + D Vesp","f":"2026-09-18"},{"p":"G Y O Colpos","e":"GYO","m":"RM","s":"JUAREZ","h":"L-V + D Mat","f":"2026-08-13"},{"p":"Medico Materno Fetal","e":"MMF","m":"RM","s":"LINDAVISTA","h":"L-V + D Mixto de 12 a 8","f":"2026-08-24"},{"p":"Pediatra","e":"Pediatra","m":"RM","s":"METEPEC","h":"L,Ma,V + S y D Vesp","f":"2026-06-16"},{"p":"G Y O Colpos","e":"GYO","m":"RM","s":"PACHUCA","h":"Mixto","f":"2026-08-21"},{"p":"G Y O colpos","e":"GYO Onco","m":"RM","s":"PACHUCA","h":"L-V + S Vesp","f":"2026-09-09"},{"p":"Dermatólogo","e":"Dermatologia","m":"ML","s":"PUEBLA","h":"L-V + S Mat","f":"2026-07-14"},{"p":"Medico Materno Fetal","e":"MMF","m":"RM","s":"PUEBLA","h":"L-V + S Horario abierto","f":"2026-07-22"},{"p":"Dermatólogo","e":"Dermatologia","m":"ML","s":"QUERETARO","h":"L-V Vesp","f":"2026-05-15"},{"p":"Medico Materno Fetal","e":"MMF","m":"RM","s":"TOLUCA","h":"L-V Vesp","f":"2026-08-20"},{"p":"Neonato","e":"Neonato","m":"RM","s":"TOLUCA","h":"M,J,V + S y D Vesp","f":"2026-05-28"},{"p":"MMF","e":"MMF","m":"RM","s":"METEPEC","h":"3 días","f":"2026-10-02"},{"p":"G y O Colpos","e":"GYO COLPOS","m":"RM","s":"COYOACAN","h":"L-V + S Vesp","f":"2026-10-05"},{"p":"G y O Colpos","e":"GyO","m":"RM","s":"LINDAVISTA","h":"L-V + S Vesp","f":"2026-09-28"},{"p":"Dermatólogo","e":"Dermatologia","m":"ML","s":"PUEBLA","h":"L-V + S Vesp","f":"2026-09-14"},{"p":"MMF","e":"MMF","m":"RM","s":"SATELITE","h":"3 días Ma, V y D","f":"2026-10-12"},{"p":"G y O Colpos","e":"G y O Colpos","m":"RM","s":"COYOACAN","h":"L-V + S Vesp","f":"2026-10-07"},{"p":"G y O Colpos","e":"G y O Colpos","m":"RM","s":"COYOACAN","h":"L-V + S Vesp","f":"2026-10-07"},{"p":"G y O Colpos","e":"G y O Colpos","m":"RM","s":"TLALNEPANTLA","h":"L-V + D Mat","f":"2026-10-13"},{"p":"G y O Colpos","e":"GYO COLPOS","m":"RM","s":"COACALCO","h":"L-V + S Mat","f":"2026-10-21"},{"p":"Pediatra","e":"Pediatra","m":"RM","s":"PUEBLA","h":"L-V + S Vesp","f":"2026-11-02"},{"p":"Pediatria","e":"Pediatra","m":"RM","s":"GRAN SUR","h":"L-V + D Vesp","f":"2026-11-05"},{"p":"Medico General","e":"Medico General","m":"ML","s":"TLALNEPANTLA","h":"Mixto","f":"2026-11-17"},{"p":"G y O Colpos","e":"GYO COLPOS","m":"RM","s":"TLATELOLCO","h":"L-V + D Vesp","f":"2026-11-17"},{"p":"Pediatra","e":"Pediatra","m":"RM","s":"LINDAVISTA","h":"L-V + S Mat","f":"2026-11-17"},{"p":"Dermatologa","e":"Dermatologia","m":"ML","s":"COYOACAN","h":"L-V + S matutino","f":"2026-10-27"},{"p":"Dermatologa","e":"Dermatologia","m":"ML","s":"TLALNEPANTLA","h":"L-V + SVesp","f":"2026-10-27"},{"p":"Pediatra","e":"Pediatra","m":"RM","s":"TLALNEPANTLA","h":"L-V + D Mat","f":"2026-11-03"}]}</script>
+<script>
+(() => {
+'use strict';
+const DATA = JSON.parse(document.getElementById('data').textContent);
+const $ = (s, el = document) => el.querySelector(s);
+const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const norm = s => String(s ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase().replace(/\s+/g, ' ').trim();
+const title = s => String(s ?? '').toLowerCase().replace(/(^|\s)\S/g, m => m.toUpperCase());
+const cap = s => s ? s[0].toUpperCase() + s.slice(1) : s;
+const money = n => '$' + n.toLocaleString('es-MX');
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const isPhone = () => matchMedia('(max-width:640px)').matches;
+
+/* ---------- Programa ---------- */
+const PROG_START = new Date(2026, 9, 1);
+const PROG_END = new Date(2027, 0, 31, 23, 59, 59);
+const now = new Date();
+const doble = now <= PROG_END;
+const BONO = doble ? 20000 : 10000;
+const PHONES = [['56 3054 0614', '525630540614'], ['55 6871 4289', '525568714289']];
+const NAME = {rm: 'Reina Madre', ml: 'María Linda'};
+const TAG_ML = '<span class="tag-ml">María Linda</span>';
+
+/* ---------- Catálogos ---------- */
+const SUC = {
+  'ARAGON': ['Aragón', 'Valle de México', 'Ciudad de México'],
+  'COACALCO': ['Coacalco', 'Valle de México', 'Estado de México'],
+  'COYOACAN': ['Coyoacán', 'Valle de México', 'Ciudad de México'],
+  'CUAUTITLAN': ['Cuautitlán', 'Valle de México', 'Estado de México'],
+  'GRAN SUR': ['Gran Sur', 'Valle de México', 'Ciudad de México'],
+  'JUAREZ': ['Juárez', 'Valle de México', 'Ciudad de México'],
+  'LINDAVISTA': ['Lindavista', 'Valle de México', 'Ciudad de México'],
+  'SATELITE': ['Satélite', 'Valle de México', 'Estado de México'],
+  'TLALNEPANTLA': ['Tlalnepantla', 'Valle de México', 'Estado de México'],
+  'METEPEC': ['Metepec', 'Valle de Toluca', 'Estado de México'],
+  'TOLUCA': ['Toluca', 'Valle de Toluca', 'Estado de México'],
+  'PACHUCA': ['Pachuca', 'Hidalgo', 'Hidalgo'],
+  'PUEBLA': ['Puebla', 'Puebla', 'Puebla'],
+  'QUERETARO': ['Querétaro', 'Querétaro', 'Querétaro'],
+  'PATRIOTISMO': ['Patriotismo', 'Valle de México', 'Ciudad de México']
+};
+const REG_ORDER = ['Valle de México', 'Valle de Toluca', 'Hidalgo', 'Puebla', 'Querétaro', 'Otras sucursales'];
+const REQ = {
+  'Ginecología - Colposcopía': ['Diplomado en Colposcopía'],
+  'Ginecología y Obstetricia': [],
+  'Ginecología Oncológica': ['Título y cédula de la subespecialidad en Ginecología Oncológica'],
+  'Medicina Materno Fetal': ['Título y cédula de la subespecialidad en Medicina Materno Fetal'],
+  'Neonatología': ['Título y cédula de la subespecialidad en Neonatología', 'RENEO vigente'],
+  'Pediatría': ['RENEO vigente'],
+  'Radiología': [],
+  'Dermatología': []
+};
+const GEN_DOC = ['Título y cédula profesional de medicina general', 'Título y cédula de la especialidad', 'Certificación vigente del Consejo de la especialidad'];
+const GEN_CON = ['Contar con la documentación indicada completa', 'No contar con consultorio propio', 'Disponibilidad de horario de acuerdo con la vacante'];
+
+const IC = {
+  coin: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M14.8 9.2c-.5-.9-1.6-1.4-2.8-1.4-1.6 0-2.8.9-2.8 2.1 0 2.8 5.6 1.4 5.6 4.2 0 1.2-1.2 2.1-2.8 2.1-1.3 0-2.4-.6-2.9-1.5M12 6v1.8M12 16.2V18"/></svg>',
+  pct: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 5L5 19"/><circle cx="7" cy="7" r="2.5"/><circle cx="17" cy="17" r="2.5"/></svg>',
+  move: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg>',
+  shield: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6l8-3z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>',
+  star: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M8.5 14l-1.5 7 5-2.5 5 2.5-1.5-7"/></svg>',
+  family: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="7" r="3"/><circle cx="17" cy="9" r="2.3"/><path d="M2.5 20c0-3.3 2.5-6 5.5-6s5.5 2.7 5.5 6"/><path d="M14 20c0-2.6 1.4-4.6 3-4.6s4 1.6 4 4.6"/></svg>',
+  net: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="18" r="2.5"/><circle cx="19" cy="18" r="2.5"/><path d="M10.8 7.2L6.2 15.8M13.2 7.2l4.6 8.6M7.5 18h9"/></svg>',
+  phone: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 005 5L15 12l5 2v4a2 2 0 01-2 2A16 16 0 013 5a2 2 0 012-2"/></svg>'
+};
+const BENS = {
+  rm: [
+    ['coin', 'Honorario garantizado', 'Ingreso garantizado desde el inicio, que puede ser superior de acuerdo con el volumen de consultas.'],
+    ['pct', 'Esquema de comisiones', 'Comisiones por consulta y procedimientos, según la especialidad.'],
+    ['move', 'Apoyo para reubicación', 'Flexibilidad y posibilidad de apoyo para reubicación, bono o renta, según sucursal y posición.'],
+    ['shield', 'Seguro médico legal', 'Respaldo para el ejercicio profesional del médico.'],
+    ['star', 'Beneficios por permanencia', 'Reconocimiento a la continuidad y el compromiso con la red.'],
+    ['family', 'Descuento para familiares', 'Esquema de descuento en nuestros servicios para sus familiares.']
+  ],
+  ml: [
+    ['coin', 'Honorario garantizado inicial', 'Ingreso garantizado desde el inicio, que puede ser superior de acuerdo con el volumen de consultas.'],
+    ['pct', 'Esquema de comisiones', 'Comisiones por consulta y procedimientos dermatológicos.'],
+    ['shield', 'Seguro médico legal', 'Respaldo para el ejercicio profesional del médico.'],
+    ['star', 'Beneficios por permanencia', 'Reconocimiento a la continuidad en la red.'],
+    ['family', 'Descuento para familiares', 'Esquema de descuento en nuestros servicios.'],
+    ['net', 'Respaldo de Grupo Reina Madre', 'María Linda forma parte de la red de clínicas para la mujer más grande de México.']
+  ]
+};
+
+/* ---------- Normalización de la hoja de captura ---------- */
+function espOf(v) {
+  const b = norm(v.e) || norm(v.p);
+  if (/ONCO/.test(b)) return 'Ginecología Oncológica';
+  if (/COLPO/.test(b)) return 'Ginecología - Colposcopía';
+  if (/MMF|MATERNO/.test(b)) return 'Medicina Materno Fetal';
+  if (/NEONAT/.test(b)) return 'Neonatología';
+  if (/PEDIA/.test(b)) return 'Pediatría';
+  if (/RADIO/.test(b)) return 'Radiología';
+  if (/DERMA/.test(b)) return 'Dermatología';
+  if (/^MG$|GENERAL/.test(b)) return 'Medicina General';
+  if (/^(GYO|G Y O|GINECO)/.test(b)) return 'Ginecología y Obstetricia';
+  if (/ANESTE/.test(b)) return 'Anestesiología';
+  return title(v.p || v.e);
+}
+const DAY = {L: 'lunes', MA: 'martes', M: 'martes', MI: 'miércoles', X: 'miércoles', J: 'jueves', V: 'viernes', S: 'sábado', D: 'domingo', LUNES: 'lunes', MARTES: 'martes', MIERCOLES: 'miércoles', JUEVES: 'jueves', VIERNES: 'viernes', SABADO: 'sábado', DOMINGO: 'domingo'};
+const joinEs = a => a.length < 2 ? a.join('') : a.slice(0, -1).join(', ') + ' y ' + a[a.length - 1];
+function dayPart(p) {
+  p = p.trim();
+  if (!p) return '';
+  if (/^(FDS|FINES? DE SEMANA)$/i.test(p)) return 'fines de semana';
+  const r = p.match(/^([A-Za-z]{1,2})\s*(?:-|\ba\b)\s*([A-Za-z]{1,2})$/i);
+  if (r && DAY[r[1].toUpperCase()] && DAY[r[2].toUpperCase()]) return `${DAY[r[1].toUpperCase()]} a ${DAY[r[2].toUpperCase()]}`;
+  const t = p.split(/[,\s]+/).filter(x => x && x.toLowerCase() !== 'y').map(x => norm(x) === 'FDS' ? 'fines de semana' : DAY[norm(x)]);
+  return t.length && t.every(Boolean) ? joinEs(t) : null;
+}
+function parseHorario(h) {
+  const raw = String(h || '').trim();
+  if (!raw) return {turno: '', dias: ''};
+  let s = ' ' + raw + ' ', turno = '', extra = '', hrs = '';
+  const T = [[/reanimaci[oó]n/i, 'Reanimación'], [/horario abierto/i, 'Horario abierto'], [/mixto/i, 'Mixto'], [/vespertino|vesp/i, 'Vespertino'], [/matutino|mat(?![a-z])/i, 'Matutino']];
+  for (const [re, name] of T) { if (re.test(s)) { turno = name; s = s.replace(re, ' '); break; } }
+  const hr = s.match(/de\s*(\d{1,2})(?::\d\d)?\s*a\s*(\d{1,2})(?::\d\d)?\s*(hrs?)?/i);
+  if (hr) {
+    let a = +hr[1], b = +hr[2];
+    if (b <= a) b += 12;
+    hrs = `${String(a).padStart(2, '0')}:00 a ${String(b).padStart(2, '0')}:00 hrs`;
+    s = s.replace(hr[0], ' ');
+  }
+  const nd = s.match(/(\d)\s*d[ií]as(\s*por\s*semana)?/i);
+  if (nd) { extra = `${nd[1]} días por semana`; s = s.replace(nd[0], ' '); }
+  s = s.trim();
+  let dias = '';
+  if (s) {
+    const parts = s.split('+').map(dayPart);
+    dias = parts.some(x => x === null) ? s : parts.filter(Boolean).join(' + ');
+  }
+  if (!turno && dias === 'fines de semana') { turno = 'Fines de semana'; dias = ''; }
+  if (!turno && extra) { turno = extra; extra = ''; }
+  else if (extra) dias = dias ? `${extra} · ${dias}` : extra;
+  if (hrs) dias = dias ? `${dias} · ${hrs}` : hrs;
+  return {turno, dias: cap(dias)};
+}
+const CORTE = new Date(DATA.corte + 'T12:00:00');
+const VAC = DATA.vacantes.map((v, i) => {
+  const sc = SUC[norm(v.s)] || [title(v.s), 'Otras sucursales', ''];
+  const hz = parseHorario(v.h);
+  const f = v.f ? new Date(v.f + 'T12:00:00') : null;
+  const isNew = !!f && (CORTE - f) >= 0 && (CORTE - f) / 864e5 <= 14;
+  return {id: i, m: v.m === 'ML' ? 'ml' : 'rm', esp: espOf(v), suc: sc[0], reg: sc[1], edo: sc[2], turno: hz.turno, dias: hz.dias, isNew};
+});
+const countBy = (arr, key) => { const m = new Map(); arr.forEach(v => m.set(v[key], (m.get(v[key]) || 0) + 1)); return [...m.entries()]; };
+/* Una especialidad se pinta con colores de María Linda si todas sus vacantes son de María Linda */
+const ESP_ML = new Set([...new Set(VAC.map(v => v.esp))].filter(e => VAC.filter(v => v.esp === e).every(v => v.m === 'ml')));
+
+/* ---------- Estado ---------- */
+const st = {tab: 'vacantes', f: {esp: null, suc: null, turno: null}};
+
+function moveInd(wrap, btn) {
+  const ind = $('.ind', wrap);
+  if (!btn || !ind) return;
+  ind.style.left = btn.offsetLeft + 'px';
+  ind.style.width = btn.offsetWidth + 'px';
+  ind.style.top = btn.offsetTop + 'px';
+  ind.style.height = btn.offsetHeight + 'px';
+  ind.style.bottom = 'auto';
+}
+function countTo(el, to) {
+  if (reduce) { el.textContent = to; return; }
+  const t0 = performance.now(), d = 800;
+  const step = t => { const p = Math.min(1, (t - t0) / d), e = 1 - Math.pow(1 - p, 3); el.textContent = Math.round(to * e); if (p < 1) requestAnimationFrame(step); };
+  requestAnimationFrame(step);
+}
+
+/* ---------- Encabezado ---------- */
+function renderHead() {
+  $('#h-lead').textContent = `Nadie conoce mejor que tú lo que significa ejercer en nuestras clínicas. Recomienda especialistas para Reina Madre y dermatólogos(as) para María Linda: por cada médico referido que se integre recibes ${money(BONO)}${doble ? ', el doble del monto habitual' : ''}.`;
+  $('#kick').textContent = doble ? 'Programa de Referidos al Doble' : 'Programa de Médicos Referidos';
+  $('#b-amt').textContent = money(BONO);
+  $('#p1').textContent = money(BONO / 2);
+  $('#p2').textContent = money(BONO / 2);
+  const clock = $('#clock');
+  if (doble) {
+    const left = Math.max(0, Math.ceil((PROG_END - now) / 864e5));
+    const frac = Math.min(1, Math.max(0, (now - PROG_START) / (PROG_END - PROG_START)));
+    $('#c-left').textContent = left === 1 ? 'Falta 1 día' : `Faltan ${left} días`;
+    requestAnimationFrame(() => requestAnimationFrame(() => { $('#c-fill').style.width = (frac * 100).toFixed(1) + '%'; }));
+  } else clock.hidden = true;
+  countTo($('[data-k="vac"]'), VAC.length);
+  countTo($('[data-k="suc"]'), new Set(VAC.map(v => v.suc)).size);
+  countTo($('[data-k="esp"]'), new Set(VAC.map(v => v.esp)).size);
+  countTo($('[data-k="new"]'), VAC.filter(v => v.isNew).length);
+  $('#s-rm').textContent = `${VAC.filter(v => v.m === 'rm').length} Reina Madre`;
+  $('#s-ml').textContent = `${VAC.filter(v => v.m === 'ml').length} María Linda`;
+  const d = CORTE.toLocaleDateString('es-MX', {day: 'numeric', month: 'long', year: 'numeric'});
+  $('#corte').textContent = `Vacantes actualizadas al ${d}. Consulta las bases del programa con Reclutamiento Médico.`;
+}
+
+/* ---------- Vacantes ---------- */
+function barsHTML(pairs, sel) {
+  const max = Math.max(1, ...pairs.map(p => p[1]));
+  return `<div class="bars${sel ? ' has-sel' : ''}">` + pairs.map(([k, n]) => {
+    const ml = ESP_ML.has(k);
+    return `<button type="button" class="${ml ? 'ml' : ''}" data-val="${esc(k)}" aria-pressed="${sel === k}"><span class="l" title="${esc(k)}">${esc(k)}${ml ? TAG_ML : ''}</span><span class="t"><span class="b" data-w="${(n / max * 100).toFixed(1)}" style="width:0"></span></span><span class="v">${n}</span></button>`;
+  }).join('') + '</div>';
+}
+function renderVacantes() {
+  const espPairs = countBy(VAC, 'esp').sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'es'));
+  const sucList = [...new Set(VAC.map(v => v.suc))].sort((a, b) => a.localeCompare(b, 'es'));
+  const turnos = [...new Set(VAC.map(v => v.turno).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'es'));
+  const sel = (id, label, none, opts, cur, wide) => `<label class="sel${wide ? ' wide' : ''}"><span>${label}</span><select id="${id}"${cur ? ' class="on"' : ''}><option value="">${none}</option>${opts.map(o => `<option value="${esc(o)}"${cur === o ? ' selected' : ''}>${esc(o)}${ESP_ML.has(o) && id === 'f-esp' ? ' (María Linda)' : ''}</option>`).join('')}</select></label>`;
+  $('#v-vacantes').innerHTML = `
+    <div class="card">
+      <div class="ch"><div><h2>Vacantes por especialidad</h2><p>Toca una especialidad para ver solo sus vacantes.</p></div>
+        <div class="legend"><span><i style="background:#8D5FA3"></i>Reina Madre</span><span><i style="background:#7BC6BB"></i>María Linda</span></div></div>
+      <div id="b-esp">${barsHTML(espPairs, st.f.esp)}</div>
+    </div>
+    <div class="fbar">
+      ${sel('f-esp', 'Especialidad', 'Todas', espPairs.map(p => p[0]), st.f.esp, true)}
+      ${sel('f-suc', 'Sucursal', 'Todas', sucList, st.f.suc)}
+      ${sel('f-turno', 'Turno', 'Todos', turnos, st.f.turno)}
+      <div class="fcount" id="fcount"></div>
+    </div>
+    <div id="list" style="display:flex;flex-direction:column;gap:22px"></div>`;
+  requestAnimationFrame(() => requestAnimationFrame(() => $$('#v-vacantes .bars .b').forEach(b => { b.style.width = b.dataset.w + '%'; })));
+  renderList();
+}
+const filtered = () => VAC.filter(v =>
+  (!st.f.esp || v.esp === st.f.esp) &&
+  (!st.f.suc || v.suc === st.f.suc) &&
+  (!st.f.turno || v.turno === st.f.turno));
+function renderList() {
+  const L = $('#list'), vs = filtered();
+  const any = st.f.esp || st.f.suc || st.f.turno;
+  $('#fcount').innerHTML = `<span>Mostrando <b>${vs.length}</b> de ${VAC.length} vacantes</span>${any ? '<button type="button" class="link" id="clr">Quitar filtros</button>' : ''}`;
+  if (!vs.length) {
+    L.innerHTML = `<div class="card empty"><p>Ninguna vacante coincide con estos filtros.</p><button class="btn sec" type="button" id="clr2">Quitar filtros</button></div>`;
+    return;
+  }
+  const byReg = new Map();
+  vs.forEach(v => { if (!byReg.has(v.reg)) byReg.set(v.reg, new Map()); const m = byReg.get(v.reg); if (!m.has(v.suc)) m.set(v.suc, []); m.get(v.suc).push(v); });
+  const regs = [...byReg.keys()].sort((a, b) => REG_ORDER.indexOf(a) - REG_ORDER.indexOf(b));
+  L.innerHTML = regs.map(r => {
+    const sucs = [...byReg.get(r).entries()].sort((a, b) => a[0].localeCompare(b[0], 'es'));
+    return `<section class="region"><h3>${esc(r)}</h3><div class="sucs">${sucs.map(([s, list]) => {
+      const allML = list.every(v => v.m === 'ml');
+      list.sort((a, b) => (a.m === b.m ? 0 : a.m === 'rm' ? -1 : 1) || a.esp.localeCompare(b.esp, 'es'));
+      return `
+      <article class="card suc${allML ? ' ml' : ''}">
+        <header><div><h4>${esc(s)}</h4><small>${esc(list[0].edo || r)}</small></div><span class="cnt">${list.length} ${list.length === 1 ? 'vacante' : 'vacantes'}</span></header>
+        ${list.map(v => `
+          <div class="vac${v.m === 'ml' && !allML ? ' ml' : ''}">
+            <div class="e">${esc(v.esp)}${v.m === 'ml' ? TAG_ML : ''}${v.isNew ? '<span class="new">Nueva</span>' : ''}</div>
+            <div class="d">${v.turno ? `<span class="turno">${esc(v.turno)}</span>` : ''}${v.dias ? `<span>${esc(v.dias)}</span>` : (v.turno ? '' : '<span>Horario por definir</span>')}</div>
+            <button class="ref" type="button" data-ref="${v.id}" aria-label="Referir a un colega para ${esc(v.esp)} en ${esc(s)}">Referir</button>
+          </div>`).join('')}
+      </article>`;
+    }).join('')}</div></section>`;
+  }).join('');
+}
+
+/* ---------- Cómo referir ---------- */
+function renderReferir() {
+  $('#v-referir').innerHTML = `
+    <div class="sec-h"><h2>Tres pasos para que tu recomendación llegue al equipo correcto</h2></div>
+    <div class="steps">
+      <div class="card step"><span class="n">1</span><h3>Identifica a un especialista</h3><p>Piensa en un colega que destaque por su calidad clínica y su trato humano, y cuyo perfil coincida con alguna de las vacantes de Reina Madre o María Linda.</p></div>
+      <div class="card step"><span class="n">2</span><h3>Compártelo con Reclutamiento Médico</h3><p>Envía su nombre, especialidad, sucursal de interés y datos de contacto. El equipo de Reclutamiento Médico se encarga de contactarlo y acompañarlo en todo el proceso.</p></div>
+      <div class="card step"><span class="n">3</span><h3>Recibe tu reconocimiento</h3><p>${doble ? `Si tu referido se integra entre octubre de 2026 y enero de 2027, recibes ${money(BONO)}` : `Recibes ${money(BONO)} por cada referido que se integre`}. Reclutamiento Médico y Honorarios Médicos te notificarán cuando cada pago sea procedente.</p></div>
+    </div>
+    <div class="grid">
+      <div class="card s7">
+        <div class="ch"><div><h2>Así recibes tu bono</h2><p>${money(BONO)} por cada médico referido que se integre, en dos pagos. Aplica igual para Reina Madre y María Linda.</p></div></div>
+        <div class="tl"><span class="line" aria-hidden="true"></span>
+          <div class="node"><b>${money(BONO / 2)}</b><span>Al ingreso de tu médico referido</span></div>
+          <div class="node"><b>${money(BONO / 2)}</b><span>Cuando tu médico referido cumpla 6 meses con nosotros</span></div>
+        </div>
+        <p class="note">${doble ? `<b>De octubre de 2026 a enero de 2027</b> el bono es de $20,000 por cada médico referido que se integre a Reina Madre o María Linda. Posteriormente, el programa continuará con su monto habitual de $10,000 por referido.` : 'El programa continúa con su monto habitual de $10,000 por referido.'}</p>
+      </div>
+      <div class="card s5 contact">
+        <div class="ch" style="margin-bottom:4px"><div><h2>Comparte tu referido</h2><p>Llama o escribe a Reclutamiento Médico a cualquiera de estos números.</p></div></div>
+        ${PHONES.map(([d, n]) => `<div class="phone"><span class="ic">${IC.phone}</span><a class="num" href="tel:+${n}">${d}</a><a class="wa" href="https://wa.me/${n}?text=${encodeURIComponent(msgFor(null))}" target="_blank" rel="noopener">WhatsApp</a></div>`).join('')}
+        <button class="btn pri" type="button" data-ref="general" style="align-self:flex-start;margin-top:4px">Preparar mensaje de referido</button>
+      </div>
+    </div>`;
+}
+
+/* ---------- Requisitos ---------- */
+function renderRequisitos() {
+  const esps = countBy(VAC, 'esp').sort((a, b) => (ESP_ML.has(a[0]) - ESP_ML.has(b[0])) || b[1] - a[1] || a[0].localeCompare(b[0], 'es'));
+  const rows = esps.map(([e, n]) => {
+    const req = REQ[e];
+    const sucs = countBy(VAC.filter(v => v.esp === e), 'suc').sort((a, b) => a[0].localeCompare(b[0], 'es')).map(([s, k]) => k > 1 ? `${s} (${k})` : s).join(', ');
+    const reqTxt = req === undefined ? '<span class="gen">Consulta los requisitos con Reclutamiento Médico</span>' : req.length ? `<ul class="dots">${req.map(r => `<li>${esc(r)}</li>`).join('')}</ul>` : '<span class="gen">Requisitos generales</span>';
+    const ml = ESP_ML.has(e);
+    return `<tr${ml ? ' class="ml"' : ''}><td>${esc(e)} ${ml ? TAG_ML : ''}<small>${n} ${n === 1 ? 'vacante' : 'vacantes'}</small></td><td>${reqTxt}</td><td>${esc(sucs)}</td></tr>`;
+  }).join('');
+  $('#v-requisitos').innerHTML = `
+    <div class="sec-h"><h2>Requisitos</h2><p>Para que tu recomendación avance más rápido, verifica que el perfil cumpla con lo siguiente.</p></div>
+    <div class="card">
+      <div class="ch"><div><h2>Requisitos generales</h2><p>Aplican para todas las especialidades, en Reina Madre y María Linda.</p></div></div>
+      <div class="req2">
+        <div><h3>Documentación</h3><ul class="dots">${GEN_DOC.map(r => `<li>${esc(r)}</li>`).join('')}</ul></div>
+        <div><h3>Condiciones</h3><ul class="dots">${GEN_CON.map(r => `<li>${esc(r)}</li>`).join('')}</ul></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="ch"><div><h2>Requisito adicional por especialidad</h2><p>Solo las especialidades con vacantes abiertas.</p></div></div>
+      <div class="tw"><table class="rq"><thead><tr><th scope="col">Especialidad</th><th scope="col">Requisito adicional</th><th scope="col">Sucursales</th></tr></thead><tbody>${rows}</tbody></table></div>
+    </div>`;
+}
+
+/* ---------- Beneficios ---------- */
+function renderBeneficios() {
+  const group = b => `<div class="bgroup${b === 'ml' ? ' ml' : ''}"><h3>En ${NAME[b]}</h3><div class="bens">${BENS[b].map(([ic, t, p]) => `<div class="card ben"><span class="ic">${IC[ic]}</span><h3>${esc(t)}</h3><p>${esc(p)}</p></div>`).join('')}</div></div>`;
+  $('#v-beneficios').innerHTML = `
+    <div class="sec-h"><h2>Lo que ofrecemos a tu referido</h2><p>Argumentos que puedes compartir con tu colega al recomendarle nuestras clínicas.</p></div>
+    ${group('rm')}
+    ${group('ml')}
+    <div class="banner"><p><b>¿Conoces al especialista ideal?</b> ${doble ? 'De octubre de 2026 a enero de 2027, cada' : 'Cada'} médico referido que se integre a Reina Madre o María Linda representa para ti un bono de</p><b class="amt">${money(BONO)}</b></div>`;
+}
+
+/* ---------- Diálogo de referido ---------- */
+function msgFor(v) {
+  const lines = ['Hola, equipo de Reclutamiento Médico. Quiero referir a un(a) colega' + (v ? ` para ${NAME[v.m]}.` : '.'), ''];
+  if (v) {
+    lines.push(`Vacante: ${v.esp}`, `Sucursal: ${v.suc}`);
+    const h = [v.turno, v.dias].filter(Boolean).join(' · ');
+    if (h) lines.push(`Horario: ${h}`);
+    lines.push('');
+  }
+  lines.push('Nombre de mi colega: ', 'Especialidad: ');
+  if (!v) lines.push('Clínica de interés (Reina Madre o María Linda): ', 'Sucursal de interés: ');
+  lines.push('Teléfono: ', 'Correo: ', '', 'Mi nombre: ');
+  return lines.join('\n');
+}
+const dlg = $('#dlg'), ta = $('#dlg-m');
+function syncWA() {
+  const t = encodeURIComponent(ta.value);
+  $('#wa1').href = `https://wa.me/${PHONES[0][1]}?text=${t}`;
+  $('#wa2').href = `https://wa.me/${PHONES[1][1]}?text=${t}`;
+}
+function openRef(id) {
+  const v = id === 'general' ? null : VAC[+id];
+  dlg.classList.toggle('ml', !!v && v.m === 'ml');
+  $('#dlg-t').textContent = v ? `Referir para ${v.esp}` : 'Referir a un colega';
+  $('#dlg-s').textContent = v ? [NAME[v.m], v.suc, v.turno, v.dias].filter(Boolean).join(' · ') : `Reina Madre y María Linda · bono de ${money(BONO)} por referido que se integre`;
+  ta.value = msgFor(v);
+  syncWA();
+  if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', '');
+  setTimeout(() => { const k = 'Nombre de mi colega: ', p = ta.value.indexOf(k) + k.length; ta.focus(); ta.setSelectionRange(p, p); }, 60);
+}
+ta.addEventListener('input', syncWA);
+$('#dlg-x').addEventListener('click', () => dlg.close());
+dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+let toastT;
+function toast(t) { const el = $('#toast'); el.textContent = t; el.classList.add('on'); clearTimeout(toastT); toastT = setTimeout(() => el.classList.remove('on'), 2200); }
+$('#cp').addEventListener('click', async () => {
+  try { await navigator.clipboard.writeText(ta.value); toast('Mensaje copiado'); }
+  catch { ta.select(); try { document.execCommand('copy'); toast('Mensaje copiado'); } catch { toast('Selecciona el texto y cópialo'); } }
+});
+
+/* ---------- Pestañas ---------- */
+const RENDER = {vacantes: renderVacantes, referir: renderReferir, requisitos: renderRequisitos, beneficios: renderBeneficios};
+function goContent() { (isPhone() ? $('main') : $('.tabwrap')).scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block: 'start'}); }
+function setTab(t, {scroll = false, anim = true} = {}) {
+  if (!RENDER[t]) t = 'vacantes';
+  st.tab = t;
+  $$('.tabs button').forEach(b => b.setAttribute('aria-selected', String(b.dataset.t === t)));
+  moveInd($('.tabs'), $(`.tabs button[data-t="${t}"]`));
+  $$('.panel').forEach(p => { p.hidden = p.id !== 'v-' + t; p.classList.remove('enter'); });
+  RENDER[t]();
+  const P = $('#v-' + t);
+  if (anim && !reduce) { void P.offsetWidth; P.classList.add('enter'); }
+  if (scroll) goContent();
+}
+
+/* ---------- Eventos ---------- */
+function syncEspBars() {
+  const bars = $('#b-esp .bars');
+  if (!bars) return;
+  bars.classList.toggle('has-sel', !!st.f.esp);
+  $$('button', bars).forEach(x => x.setAttribute('aria-pressed', String(x.dataset.val === st.f.esp)));
+}
+document.addEventListener('click', e => {
+  const t = e.target.closest('button, a');
+  if (!t) return;
+  if (t.matches('.tabs button')) return setTab(t.dataset.t, {scroll: isPhone()});
+  if (t.dataset.go) return setTab(t.dataset.go, {scroll: true});
+  if (t.dataset.ref !== undefined) return openRef(t.dataset.ref);
+  if (t.id === 'clr' || t.id === 'clr2') { st.f = {esp: null, suc: null, turno: null}; return renderVacantes(); }
+  if (t.closest('#b-esp .bars')) {
+    st.f.esp = st.f.esp === t.dataset.val ? null : t.dataset.val;
+    syncEspBars();
+    const s = $('#f-esp');
+    if (s) { s.value = st.f.esp || ''; s.classList.toggle('on', !!st.f.esp); }
+    return renderList();
+  }
+});
+document.addEventListener('change', e => {
+  const key = {'f-esp': 'esp', 'f-suc': 'suc', 'f-turno': 'turno'}[e.target.id];
+  if (!key) return;
+  st.f[key] = e.target.value || null;
+  e.target.classList.toggle('on', !!st.f[key]);
+  if (key === 'esp') syncEspBars();
+  renderList();
+});
+const fixInd = () => moveInd($('.tabs'), $('.tabs button[aria-selected="true"]'));
+addEventListener('resize', fixInd);
+if (document.fonts) document.fonts.ready.then(fixInd);
+
+/* ---------- Enlaces directos: #vacantes, #referir, #requisitos, #beneficios ---------- */
+const fromHash = () => { const m = decodeURIComponent(location.hash.slice(1)).toLowerCase().match(/(vacantes|referir|requisitos|beneficios)$/); return m ? m[1] : null; };
+renderHead();
+setTab(fromHash() || 'vacantes', {anim: false});
+addEventListener('hashchange', () => { const t = fromHash(); if (t && t !== st.tab) setTab(t); });
+})();
+</script>
+</body>
+</html>
